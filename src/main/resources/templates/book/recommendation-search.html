@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title data-i18n="recommendationSearch">推荐搜索</title>
+    <link href="../../javaex/pc/css/common.css" rel="stylesheet" />
+    <link href="../../javaex/pc/css/skin/tina.css" rel="stylesheet" />
+    <script src="../../javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <script src="../../javaex/pc/js/javaex.min.js"></script>
+    <script src="/lang/lang.js"></script>
+    <style>
+        .table th, .table td { text-align: center; }
+        .input-group input { width: 200px; margin-right: 5px; }
+    </style>
+</head>
+<body>
+<div class="list-content">
+    <div class="block">
+        <h2 data-i18n="recommendationSearch">推荐搜索</h2>
+        <div class="main">
+            <div class="batch-bar">
+                <div class="input-group" style="display:inline-block; float:right;">
+                    <input id="keyword" type="text" class="text" data-i18n-placeholder="recommendationKeywordPlaceholder" placeholder="（书籍ID/月/推荐理由）" />
+                    <button id="searchBtn" class="button blue" onclick="search();" data-i18n="search">搜索</button>
+                </div>
+            </div>
+            <table id="table" class="table color2">
+                <thead>
+                <tr align="center">
+                    <th data-i18n="id">ID</th>
+                    <th data-i18n="bookId">书籍ID</th>
+                    <th data-i18n="recommendMonth">推荐月份</th>
+                    <th data-i18n="recommendReason">推荐理由</th>
+                    <th data-i18n="createTime">创建时间</th>
+                    <th data-i18n="updateTime">更新时间</th>
+                </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+            <div class="page">
+                <ul id="page" class="pagination"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    const lang = localStorage.getItem("lang") || "zh";
+    loadLang(lang);
+
+    var pageSize = 10;
+    var currentPage = 1;
+
+    function search() {
+        currentPage = 1;
+        loadRecommendations();
+    }
+
+    function loadRecommendations() {
+        var keyword = $("#keyword").val().trim();
+
+        var params = {
+            page: currentPage,
+            size: pageSize
+        };
+        if (keyword) params.keyword = keyword;
+
+        $.ajax({
+            type: "GET",
+            url: "/api/recommendation/search",
+            data: params,
+            success: function(result) {
+                if (result.code !== 0) {
+                    $("#tbody").html("<tr><td colspan='6'>" + (result.msg || i18n[lang].loadFailed + "：" + i18n[lang].unknownError) + "</td></tr>");
+                    return;
+                }
+                var data = result.data || {};
+                var array = data.records || [];
+                var total = data.total || 0;
+                renderTable(array);
+                renderPage(total, data.current || 1, data.size || 10);
+            },
+            error: function() {
+                $("#tbody").html("<tr><td colspan='6'>" + i18n[lang].dataLoadFailed + "</td></tr>");
+            }
+        });
+    }
+
+    function renderTable(array) {
+        var html = "";
+        $.each(array, function(index, rec) {
+            html += "<tr align='center'>" +
+                "<td>" + (rec.id || '') + "</td>" +
+                "<td>" + (rec.bookId || '') + "</td>" +
+                "<td>" + (rec.recommendMonth || '') + "</td>" +
+                "<td>" + (rec.recommendReason || '') + "</td>" +
+                "<td>" + (rec.createTime || '') + "</td>" +
+                "<td>" + (rec.updateTime || '') + "</td>" +
+                "</tr>";
+        });
+        $("#tbody").html(html);
+    }
+
+    function renderPage(total, curr, size) {
+        var totalPage = Math.ceil(total / size);
+        $("#page").empty();
+        if (totalPage > 1) {
+            javaex.page({
+                id: "page",
+                pageCount: totalPage,
+                currentPage: curr,
+                perPageCount: size,
+                isShowJumpPage: false,
+                totalNum: total,
+                position: "center",
+                callback: function(rtn) {
+                    currentPage = rtn.pageNum;
+                    loadRecommendations();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function(){
+        loadRecommendations();
+    });
+</script>
+</body>
+</html>

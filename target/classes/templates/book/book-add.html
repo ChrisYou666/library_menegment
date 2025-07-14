@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title data-i18n="addBookTitle">添加图书</title>
+    <link href="../../javaex/pc/css/icomoon.css" rel="stylesheet" />
+    <link href="../../javaex/pc/css/animate.css" rel="stylesheet" />
+    <link href="../../javaex/pc/css/common.css" rel="stylesheet" />
+    <link href="../../javaex/pc/css/skin/tina.css" rel="stylesheet" />
+    <script src="../../javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <script src="../../javaex/pc/js/javaex.min.js"></script>
+    <script src="/lang/lang.js"></script>
+</head>
+<body>
+<div class="list-content">
+    <div class="block">
+        <div class="banner">
+            <p class="tab fixed" data-i18n="addBookTitle">添加图书</p>
+        </div>
+        <div class="main">
+            <form id="bookForm" autocomplete="off">
+                <div class="unit clear"><div class="left"><span class="required">*</span><p class="subtitle" data-i18n="bookNumber">图书编号</p></div><div class="right"><input type="text" id="bookNumber" class="text" placeholder="图书编号" data-i18n-placeholder="bookNumber" /></div></div>
+                <div class="unit clear"><div class="left"><span class="required">*</span><p class="subtitle" data-i18n="isbn">ISBN编号</p></div><div class="right"><input type="text" id="isbn" class="text" placeholder="ISBN编号" data-i18n-placeholder="isbn" /></div></div>
+                <div class="unit clear"><div class="left"><span class="required">*</span><p class="subtitle" data-i18n="nameCn">中文书名</p></div><div class="right"><input type="text" id="nameCn" class="text" placeholder="中文书名" data-i18n-placeholder="nameCn" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="nameId">外文书名</p></div><div class="right"><input type="text" id="nameId" class="text" placeholder="外文书名" data-i18n-placeholder="nameId" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="language">语言</p></div>
+                    <div class="right">
+                        <select id="language">
+                            <option value="" data-i18n="select">请选择</option>
+                            <option value="中文" data-i18n="languageChinese">中文</option>
+                            <option value="印尼语" data-i18n="languageIndonesian">印尼语</option>
+                            <option value="英文" data-i18n="languageEnglish">英文</option>
+                            <option value="西班牙语" data-i18n="languageSpanish">西班牙语</option>
+                            <option value="Other" data-i18n="languageOther">其他</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="author">作者</p></div><div class="right"><input type="text" id="author" class="text" placeholder="作者" data-i18n-placeholder="author" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="translator">翻译者</p></div><div class="right"><input type="text" id="translator" class="text" placeholder="翻译者" data-i18n-placeholder="translator" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="publisher">出版社</p></div><div class="right"><input type="text" id="publisher" class="text" placeholder="出版社" data-i18n-placeholder="publisher" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="publishDate">出版日期</p></div><div class="right"><input type="text" id="publishDate" class="ex-date" style="width: 180px;" readonly /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="price">定价</p></div><div class="right"><input type="text" id="price" class="text" placeholder="定价" data-i18n-placeholder="price" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="category">分类</p></div>
+                    <div class="right">
+                        <select id="categoryId">
+                            <option value="" data-i18n="select">请选择</option>
+                            <option value="1" data-i18n="category1">经济/商业</option>
+                            <option value="2" data-i18n="category2">农业</option>
+                            <option value="3" data-i18n="category3">棕榈油</option>
+                            <option value="4" data-i18n="category4">技术，科学，化学</option>
+                            <option value="5" data-i18n="category5">启发</option>
+                            <option value="6" data-i18n="category6">语言</option>
+                            <option value="7" data-i18n="category7">常识</option>
+                            <option value="8" data-i18n="category8">自我发展</option>
+                            <option value="9" data-i18n="category9">工业</option>
+                            <option value="10" data-i18n="category10">历史</option>
+                            <option value="11" data-i18n="category11">传记、自传、回忆录</option>
+                            <option value="12" data-i18n="category12">文学</option>
+                            <option value="13" data-i18n="category13">生存</option>
+                            <option value="14" data-i18n="category14">政治</option>
+                            <option value="15" data-i18n="category15">心理学</option>
+                            <option value="16" data-i18n="category16">管理理论</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="location">馆藏位置</p></div><div class="right"><input type="text" id="location" class="text" placeholder="馆藏位置" data-i18n-placeholder="location" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="totalQuantity">馆藏总数</p></div><div class="right"><input type="text" id="totalQuantity" class="text" placeholder="总数" data-i18n-placeholder="totalQuantity" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="availableQuantity">可借数</p></div><div class="right"><input type="text" id="availableQuantity" class="text" placeholder="可借数量" data-i18n-placeholder="availableQuantity" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="borrowCount">借出次数</p></div><div class="right"><input type="text" id="borrowCount" class="text" placeholder="借出次数" data-i18n-placeholder="borrowCount" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="status">状态</p></div>
+                    <div class="right">
+                        <select id="status">
+                            <option value="1" data-i18n="visible">可见</option>
+                            <option value="0" data-i18n="invisible">不可见</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="description">描述</p></div><div class="right"><input type="text" id="description" class="text" placeholder="描述" data-i18n-placeholder="description" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="ratingAvg">评分</p></div><div class="right"><input type="text" id="ratingAvg" class="text" placeholder="评分" data-i18n-placeholder="ratingAvg" /></div></div>
+                <div class="unit clear" style="width: 800px;">
+                    <div style="text-align: center;">
+                        <input type="button" id="return" class="button no" value="返回" data-i18n="back" />
+                        <input type="button" id="save" class="button yes" value="保存" data-i18n="save" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    javaex.date({ id : "publishDate", isTime : false, date : "", callback : function(rtn) {} });
+
+    $(function () {
+        // ✅ 加载语言翻译
+        const lang = localStorage.getItem("lang") || "zh";
+        loadLang(lang);
+
+        // 返回按钮跳转
+        $("#return").click(function () {
+            window.location.href = "book-list.html";
+        });
+
+        // 保存按钮提交数据
+        $("#save").click(function () {
+            const bookDto = {
+                bookNumber: $("#bookNumber").val(),
+                isbn: $("#isbn").val(),
+                nameCn: $("#nameCn").val(),
+                nameId: $("#nameId").val(),
+                language: $("#language").val(),
+                author: $("#author").val(),
+                translator: $("#translator").val(),
+                publisher: $("#publisher").val(),
+                publishDate: $("#publishDate").val(),
+                price: $("#price").val(),
+                categoryId: $("#categoryId").val(),
+                location: $("#location").val(),
+                totalQuantity: $("#totalQuantity").val(),
+                availableQuantity: $("#availableQuantity").val(),
+                borrowCount: $("#borrowCount").val(),
+                status: $("#status").val(),
+                description: $("#description").val(),
+                ratingAvg: $("#ratingAvg").val()
+            };
+
+            $.ajax({
+                url: "/api/book",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(bookDto),
+                success: function (res) {
+                    if (res.code === 0) {
+                        window.location.href = "book-list.html";
+                    } else {
+                        alert("保存失败：" + res.msg);
+                    }
+                },
+                error: function () {
+                    alert("请求出错");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

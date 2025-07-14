@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>编辑图书</title>
+    <link href="../../javaex/pc/css/icomoon.css" rel="stylesheet" />
+    <link href="../../javaex/pc/css/animate.css" rel="stylesheet" />
+    <link href="../../javaex/pc/css/common.css" rel="stylesheet" />
+    <link href="../../javaex/pc/css/skin/tina.css" rel="stylesheet" />
+    <script src="../../javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <script src="../../javaex/pc/js/javaex.min.js"></script>
+    <style>
+        #coverPreview {
+            max-height: 100px;
+            display: none;
+            margin-top: 8px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .cover-upload {
+            margin-left: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="list-content">
+    <div class="block">
+        <div class="banner">
+            <p class="tab fixed">编辑图书</p>
+        </div>
+        <div class="main">
+            <form>
+                <div class="unit clear">
+                    <div class="left"><span class="required">*</span><p class="subtitle">ID</p></div>
+                    <div class="right"><input type="text" id="id" class="text" placeholder="图书ID" /></div>
+                </div>
+                <div class="unit clear"><div class="left"><span class="required">*</span><p class="subtitle">图书编号</p></div><div class="right"><input type="text" id="bookNumber" class="text" placeholder="请输入图书编号" /></div></div>
+                <div class="unit clear"><div class="left"><span class="required">*</span><p class="subtitle">ISBN编号</p></div><div class="right"><input type="text" id="isbn" class="text" placeholder="ISBN编号" /></div></div>
+                <div class="unit clear"><div class="left"><span class="required">*</span><p class="subtitle">中文书名</p></div><div class="right"><input type="text" id="nameCn" class="text" placeholder="中文书名" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">外文书名</p></div><div class="right"><input type="text" id="nameId" class="text" placeholder="外文书名" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">语言</p></div>
+                    <div class="right">
+                        <select id="language">
+                            <option value="">请选择</option>
+                            <option value="中文">中文</option>
+                            <option value="印尼语">印尼语</option>
+                            <option value="英文">英文</option>
+                            <option value="西班牙语">西班牙语</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="unit clear"><div class="left"><p class="subtitle">作者</p></div><div class="right"><input type="text" id="author" class="text" placeholder="作者" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">翻译者</p></div><div class="right"><input type="text" id="translator" class="text" placeholder="翻译者" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">出版社</p></div><div class="right"><input type="text" id="publisher" class="text" placeholder="出版社" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">出版日期</p></div><div class="right"><input type="text" id="publishDate" class="ex-date" style="width: 180px;" readonly /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">定价</p></div><div class="right"><input type="text" id="price" class="text" placeholder="定价" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">分类</p></div>
+                    <div class="right">
+                        <select id="categoryId">
+                            <option value="">请选择</option>
+                            <option value="1">马克思主义、列宁主义、毛泽东思想、邓小平理论</option>
+                            <option value="2">哲学、宗教</option>
+                            <option value="3">文化、科学、教育、体育</option>
+                            <option value="4">政治、法律</option>
+                            <option value="5">历史、地理</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="unit clear"><div class="left"><p class="subtitle">馆藏位置</p></div><div class="right"><input type="text" id="location" class="text" placeholder="馆藏位置" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">馆藏总数</p></div><div class="right"><input type="text" id="totalQuantity" class="text" placeholder="总数" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">可借数</p></div><div class="right"><input type="text" id="availableQuantity" class="text" placeholder="可借数量" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">借出次数</p></div><div class="right"><input type="text" id="borrowCount" class="text" placeholder="借出次数" /></div></div>
+                <div class="unit clear"><div class="left"><p class="subtitle">状态</p></div>
+                    <div class="right">
+                        <select id="status">
+                            <option value="1">可借</option>
+                            <option value="0">不可借</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="unit clear"><div class="left"><p class="subtitle">描述</p></div><div class="right"><input type="text" id="description" class="text" placeholder="描述" /></div></div>
+
+                <!-- 封面图片上传 -->
+                <div class="unit clear">
+                    <div class="left"><p class="subtitle">封面图片地址</p></div>
+                    <div class="right" style="vertical-align: middle;">
+                        <input type="text" id="coverImage" class="text" placeholder="图片URL" style="width:300px;display:inline-block;" />
+                        <span class="cover-upload">
+                            <input type="file" id="coverFile" accept="image/*" style="display:inline-block;width:auto;" />
+                        </span>
+                        <img id="coverPreview" src="" alt="封面预览" />
+                    </div>
+                </div>
+
+                <div class="unit clear"><div class="left"><p class="subtitle">评分</p></div><div class="right"><input type="text" id="ratingAvg" class="text" placeholder="评分" /></div></div>
+                <div class="unit clear" style="width: 800px;">
+                    <div style="text-align: center;">
+                        <input type="button" id="return" class="button no" value="返回" />
+                        <input type="button" id="save" class="button yes" value="保存" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    javaex.date({
+        id : "publishDate",
+        isTime : false,
+        date : "",
+        callback : function(rtn) {}
+    });
+
+    function showTip(msg) {
+        javaex.optTip({content: msg, type: "error"});
+        return false;
+    }
+
+    function getQueryVariable(variable){
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i=0;i<vars.length;i++) {
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
+        }
+        return false;
+    }
+
+    // 页面加载时回填表单
+    $(document).ready(function(){
+        var id = getQueryVariable("id");
+        if (id) {
+            $.get("/api/book/detail/"+id, function(res){
+                if(res.code === 0 && res.data){
+                    var data = res.data;
+                    $("#id").val(data.id || "");
+                    $("#bookNumber").val(data.bookNumber || "");
+                    $("#isbn").val(data.isbn || "");
+                    $("#nameCn").val(data.nameCn || "");
+                    $("#nameId").val(data.nameId || "");
+                    $("#language").val(data.language || "");
+                    $("#author").val(data.author || "");
+                    $("#translator").val(data.translator || "");
+                    $("#publisher").val(data.publisher || "");
+                    $("#publishDate").val(data.publishDate || "");
+                    $("#price").val(data.price || "");
+                    $("#categoryId").val(data.categoryId || "");
+                    $("#location").val(data.location || "");
+                    $("#totalQuantity").val(data.totalQuantity || "");
+                    $("#availableQuantity").val(data.availableQuantity || "");
+                    $("#borrowCount").val(data.borrowCount || "");
+                    $("#status").val(data.status || "");
+                    $("#description").val(data.description || "");
+                    $("#coverImage").val(data.coverImage || "");
+                    $("#ratingAvg").val(data.ratingAvg || "");
+
+                    if (data.coverImage) {
+                        $("#coverPreview").attr("src", data.coverImage).show();
+                    }
+                }
+            });
+        }
+    });
+
+    // 保存按钮点击事件
+    $("#save").click(function(){
+        var formData = {
+            id: $("#id").val(),
+            bookNumber: $("#bookNumber").val(),
+            isbn: $("#isbn").val(),
+            nameCn: $("#nameCn").val(),
+            nameId: $("#nameId").val(),
+            language: $("#language").val(),
+            author: $("#author").val(),
+            translator: $("#translator").val(),
+            publisher: $("#publisher").val(),
+            publishDate: $("#publishDate").val(),
+            price: $("#price").val(),
+            categoryId: $("#categoryId").val(),
+            location: $("#location").val(),
+            totalQuantity: $("#totalQuantity").val(),
+            availableQuantity: $("#availableQuantity").val(),
+            borrowCount: $("#borrowCount").val(),
+            status: $("#status").val(),
+            description: $("#description").val(),
+            coverImage: $("#coverImage").val(),
+            ratingAvg: $("#ratingAvg").val()
+        };
+
+        $.ajax({
+            url: "/api/book",
+            type: "PUT",
+            contentType: "application/json",
+            data: JSON.stringify(formData),
+            success: function(res){
+                if(res.code === 0){
+                    javaex.optTip({content: "保存成功", type: "success"});
+                } else {
+                    showTip(res.msg || "保存失败");
+                }
+            },
+            error: function(){
+                showTip("提交失败");
+            }
+        });
+    });
+
+    // 返回按钮
+    $("#return").click(function(){
+        history.back();
+    });
+
+    // 上传封面图片
+    $("#coverFile").change(function(){
+        var file = this.files[0];
+        if (!file) return;
+
+        var formData = new FormData();
+        formData.append("file", file);
+
+        $.ajax({
+            url: "/api/upload",  // 请根据你的后端接口修改路径
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(res){
+                if(res.code === 0 && res.data){
+                    $("#coverImage").val(res.data);
+                    $("#coverPreview").attr("src", res.data).show();
+                } else {
+                    showTip("图片上传失败");
+                }
+            },
+            error: function(){
+                showTip("上传出错");
+            }
+        });
+    });
+</script>
+</body>
+</html>
