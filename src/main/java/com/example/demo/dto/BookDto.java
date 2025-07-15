@@ -16,4 +16,5 @@ public class BookDto {
     private Long categoryId;
     private String location;
     private Integer totalQuantity, availableQuantity;
+    private Integer status;
 }

@@ -1,13 +1,15 @@
 package com.example.demo.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.dto.BookCommentDTO;
+import com.example.demo.entity.BookComment;
 import com.example.demo.vo.BookCommentVO;
 import com.example.demo.vo.CommentStatisticsVO;
 
 import java.util.List;
 
-public interface CommentService {
+public interface CommentService extends IService<BookComment> {
     void createComment(BookCommentDTO dto);
     void updateComment(Integer id, BookCommentDTO dto);
     void deleteComment(Integer id);

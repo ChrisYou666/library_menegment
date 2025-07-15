@@ -12,6 +12,7 @@ public class BookCommentVO {
     private String byPerson;
     private String content;
     private Integer rating;
+    private String bookName;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 }

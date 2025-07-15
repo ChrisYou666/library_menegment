@@ -25,9 +25,8 @@ public class BookRecommendationController {
      */
     @LogExecution
     @PostMapping
-    public Result<Void> create(@Validated @RequestBody BookRecommendationDTO dto) {
-        svc.create(dto);
-        return Result.success();
+    public Result<String> create(@Validated @RequestBody BookRecommendationDTO dto) {
+        return svc.create(dto);
     }
 
     @PutMapping

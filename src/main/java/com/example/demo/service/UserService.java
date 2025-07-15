@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.commom.Result;
 import com.example.demo.dto.*;
+import com.example.demo.entity.Book;
 import com.example.demo.entity.User;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public interface UserService extends IService<User> {
     Page<User> searchUsers(UserSearchCriteria criteria, int page, int size);
 
     void batchUpdateStatus(List<Integer> ids, Integer status);
+
+    User getByName(String username);
 }

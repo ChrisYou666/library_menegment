@@ -10,6 +10,8 @@ public class BookRecommendationVO {
     private String recommendReason;
     private Integer operatorId;
     private Integer status;
+    private String bookName;
+    private String operatorName;
     private String createTime;
     private String updateTime;
 }

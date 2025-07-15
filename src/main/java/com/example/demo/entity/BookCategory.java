@@ -26,5 +26,4 @@ public class BookCategory {
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime updateTime;
-
 }

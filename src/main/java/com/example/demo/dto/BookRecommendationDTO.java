@@ -15,4 +15,5 @@ public class BookRecommendationDTO {
     private String recommendReason;
     private Integer operatorId;
     private Integer status;
+    private String bookName;
 }

@@ -35,9 +35,8 @@
                 <tr align="center">
                     <th><input type="checkbox" id="selectAll"/></th>
                     <th data-i18n="id">ID</th>
-                    <th data-i18n="bookId">图书ID</th>
-                    <th data-i18n="userId">用户ID</th>
-                    <th data-i18n="byPerson">评论人</th>
+                    <th data-i18n="bookName">图书名称</th>
+                    <th data-i18n="username">评论人</th>
                     <th data-i18n="content">内容</th>
                     <th data-i18n="rating">评分</th>
                     <th data-i18n="createTime">创建时间</th>
@@ -64,8 +63,7 @@
             html += "<tr align='center'>" +
                 "<td><input type='checkbox' class='rowBox' value='"+c.id+"'/></td>" +
                 "<td>"+(c.id||'')+"</td>" +
-                "<td>"+(c.bookId||'')+"</td>" +
-                "<td>"+(c.userId||'')+"</td>" +
+                "<td>"+(c.bookName||'')+"</td>" +
                 "<td>"+(c.byPerson||'')+"</td>" +
                 "<td>"+(c.content||'')+"</td>" +
                 "<td>"+(c.rating||'')+"</td>" +

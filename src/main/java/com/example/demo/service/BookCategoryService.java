@@ -1,11 +1,13 @@
 package com.example.demo.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.demo.dto.BookCategoryDTO;
+import com.example.demo.entity.BookCategory;
 import com.example.demo.vo.BookCategoryVO;
 import java.util.List;
 
-public interface BookCategoryService {
+public interface BookCategoryService extends IService<BookCategory> {
     Page<BookCategoryVO> page(int page, int size);
     void create(BookCategoryDTO dto);
     void update(Integer id, BookCategoryDTO dto);

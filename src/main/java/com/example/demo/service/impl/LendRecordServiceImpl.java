@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.commom.Result;
 import com.example.demo.commom.UserContext;
 import com.example.demo.entity.Book;
 import com.example.demo.entity.User;
@@ -46,6 +47,7 @@ public class LendRecordServiceImpl extends ServiceImpl<LendRecordMapper, LendRec
     @Autowired
     private UserService userService;
 
+
     public Page<LendRecordVO> page(int page, int size) {
         // 1. 分页查询实体
         Page<LendRecord> p = mapper.selectPage(new Page<>(page, size), Wrappers.emptyWrapper());
@@ -68,20 +70,33 @@ public class LendRecordServiceImpl extends ServiceImpl<LendRecordMapper, LendRec
     }
 
     @Override
-    public void create(LendRecordDTO dto) {
+    public Result<String> create(LendRecordDTO dto) {
         LendRecord entity = new LendRecord();
         BeanUtils.copyProperties(dto, entity);
         entity.setStatus("已借出");
 
-        Long id = Long.valueOf(dto.getBookId());
-        Book book=bookMapper.selectById(id);
-        bookService.borrowBook(id);
+        Book book=bookService.getByISBN(dto.getIsbn());
+
+        if(book==null){
+            return Result.error("图书不存在");
+        }
+
+        User user=userService.getByName(dto.getUsername());
+        if(user==null){
+            return Result.error("用户不存在");
+        }
 
         entity.setBookName(book.getNameCn());
         entity.setBookNumber(book.getBookNumber());
         entity.setStatus(String.valueOf(book.getStatus()));
+        entity.setUserName(dto.getUsername());
+        entity.setReaderId(user.getId());
+        entity.setBookId(book.getId());
+
+        bookService.borrowBook(Long.valueOf(book.getId()));
 
         mapper.insert(entity);
+        return Result.success();
     }
 
     @Override

@@ -37,6 +37,8 @@ public class CommentServiceImpl extends ServiceImpl<BookCommentMapper, BookComme
     private UserService userService;
     @Autowired
     private BookMapper bookMapper;
+    @Autowired
+    private BookService bookService;
 
     /**
      *
@@ -239,7 +241,16 @@ public class CommentServiceImpl extends ServiceImpl<BookCommentMapper, BookComme
         Page<BookCommentVO> voPage = new Page<>(p.getCurrent(), p.getSize(), p.getTotal());
         voPage.setRecords(p.getRecords().stream().map(entity -> {
             BookCommentVO vo = new BookCommentVO();
+            // 先把 entity 的通用属性拷贝过去
             BeanUtils.copyProperties(entity, vo);
+
+            // 再根据 bookId 去查 book，然后把 nameCn 塞到 VO
+            Book book = bookService.getById(entity.getBookId());
+            if (book != null) {
+                vo.setBookName(book.getNameCn());
+            } else {
+                vo.setBookName("—");  // 或者留空、或者写一个默认值
+            }
             return vo;
         }).collect(Collectors.toList()));
 

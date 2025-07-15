@@ -1,13 +1,16 @@
 package com.example.demo.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.demo.commom.Result;
 import com.example.demo.dto.BookRecommendationDTO;
+import com.example.demo.entity.BookRecommendation;
 import com.example.demo.vo.BookRecommendationVO;
 
 import java.util.List;
 
-public interface BookRecommendationService {
-    void create(BookRecommendationDTO dto);
+public interface BookRecommendationService extends IService<BookRecommendation> {
+    Result<String> create(BookRecommendationDTO dto);
     void update(BookRecommendationDTO dto);
     void delete(Integer id);
     void deleteBatch(List<Integer> ids);

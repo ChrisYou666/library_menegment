@@ -39,8 +39,8 @@
         <tr align="center">
             <th><input type="checkbox" id="selectAll"/></th>
             <th data-i18n="id">ID</th>
-            <th data-i18n="bookId">图书ID</th>
-            <th data-i18n="userId">用户ID</th>
+            <th data-i18n="bookName">图书名称</th>
+            <th data-i18n="username">用户名称</th>
             <th data-i18n="lendTime">借阅时间</th>
             <th data-i18n="dueTime">应还时间</th>
             <th data-i18n="returnTime">归还时间</th>
@@ -96,8 +96,8 @@
             html += "<tr align='center'>" +
                 "<td><input type='checkbox' class='rowBox' value='"+r.id+"'/></td>" +
                 "<td>"+(r.id||'')+"</td>" +
-                "<td>"+(r.bookId||'')+"</td>" +
-                "<td>"+(r.readerId||'')+"</td>" +
+                "<td>"+(r.bookName||'')+"</td>" +
+                "<td>"+(r.userName||'')+"</td>" +
                 "<td>"+(r.lendTime||'')+"</td>" +
                 "<td>"+(r.dueTime||'')+"</td>" +
                 "<td>"+(r.returnTime||'')+"</td>" +

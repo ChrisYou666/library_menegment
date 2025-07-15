@@ -7,11 +7,22 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.entity.SysLog;
 import com.example.demo.mapper.SysLogMapper;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.SysLogService;
+import com.example.demo.service.UserService;
+import org.aspectj.lang.annotation.After;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Service
 public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> implements SysLogService {
+    @Autowired
+    private UserService userService;
 
     @Override
     public IPage<SysLog> searchLogs(int page, int size, String keyword) {

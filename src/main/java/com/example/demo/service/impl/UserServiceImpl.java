@@ -16,7 +16,6 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -147,5 +146,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         UpdateWrapper<User> update = new UpdateWrapper<>();
         update.in("id", ids).set("status", status);
         this.update(update);
+    }
+
+    @Override
+    public User getByName(String username) {
+        return this.getOne(
+                new LambdaQueryWrapper<User>()
+                        .eq(User::getUsername, username)
+        );
     }
 }

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.example.demo.commom.Result;
 import com.example.demo.entity.SysLog;
 import com.example.demo.service.SysLogService;
+import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 public class SysLogController {
 
     private final SysLogService sysLogService;
+    private final UserService userService;
 
     /**
      * 分页查询日志
@@ -27,6 +29,10 @@ public class SysLogController {
             @RequestParam(required = false) String keyword
     ) {
         IPage<SysLog> result = sysLogService.searchLogs(page, size, keyword);
+        for (SysLog sysLog : result.getRecords()) {
+            Integer userId = Integer.valueOf(sysLog.getUsername());
+            sysLog.setUsername(userService.getById(userId).getUsername());
+        }
         return Result.success(result);
     }
 

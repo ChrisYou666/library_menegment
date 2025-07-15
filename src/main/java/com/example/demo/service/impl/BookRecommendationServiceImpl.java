@@ -5,13 +5,19 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.demo.commom.Result;
 import com.example.demo.commom.UserContext;
 import com.example.demo.dto.BookRecommendationDTO;
+import com.example.demo.entity.Book;
 import com.example.demo.entity.BookRecommendation;
+import com.example.demo.entity.User;
 import com.example.demo.mapper.BookRecommendationMapper;
 import com.example.demo.service.BookRecommendationService;
+import com.example.demo.service.BookService;
+import com.example.demo.service.UserService;
 import com.example.demo.vo.BookRecommendationVO;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -24,14 +30,33 @@ public class BookRecommendationServiceImpl extends ServiceImpl<BookRecommendatio
     @Resource
     private BookRecommendationMapper mapper;
     private static final DateTimeFormatter FMT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    @Autowired
+    private UserContext userContext;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private BookService bookService;
 
     @Override
-    public void create(BookRecommendationDTO dto) {
+    public Result<String> create(BookRecommendationDTO dto) {
+        Integer userId = Math.toIntExact(userContext.getUserId());
+        User user=userService.getById(userId);
+        String userName=user.getUsername();
+
         BookRecommendation e = new BookRecommendation();
         BeanUtils.copyProperties(dto, e);
-        Integer id= Math.toIntExact(UserContext.getUserId());
-        e.setOperatorId(id);
+        e.setOperatorName(userName);
+
+        Book book = bookService.getByName(dto.getBookName());
+
+        if (book == null) {
+            return Result.error("未找到对应图书");
+        }
+        e.setNameCn(book.getNameCn());
+        e.setBookId(book.getId());
+        e.setOperatorId(userId);
         mapper.insert(e);
+        return Result.success("推荐创建成功");
     }
 
     @Override
@@ -129,6 +154,7 @@ public class BookRecommendationServiceImpl extends ServiceImpl<BookRecommendatio
 
     @Override
     public Page<BookRecommendationVO> searchRecommendations(String keyword, int page, int size) {
+
         LambdaQueryWrapper<BookRecommendation> wrapper = new LambdaQueryWrapper<>();
 
         if (StringUtils.isNotBlank(keyword)) {
@@ -160,6 +186,8 @@ public class BookRecommendationServiceImpl extends ServiceImpl<BookRecommendatio
         BeanUtils.copyProperties(e, vo);
         vo.setCreateTime(e.getCreateTime().format(FMT));
         vo.setUpdateTime(e.getUpdateTime().format(FMT));
+        vo.setBookName(e.getNameCn());
+        vo.setOperatorName(e.getOperatorName());
         return vo;
     }
 }

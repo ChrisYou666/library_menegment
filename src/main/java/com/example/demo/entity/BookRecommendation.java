@@ -19,6 +19,8 @@ public class BookRecommendation {
     private String recommendReason;
     private Integer operatorId;
     private Integer status;
+    private String operatorName;
+    private String nameCn;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

@@ -15,6 +15,8 @@ public class LendRecordDTO {
     private Integer bookId;
     private String bookName;
     private String bookNumber;
+    private String username;
+    private String isbn;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")

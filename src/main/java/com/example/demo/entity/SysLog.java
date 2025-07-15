@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @TableName("sys_log")
 public class SysLog {
     @TableId(type = IdType.AUTO) private Long   id;
+    private Integer userId;
     private String  username;
     private String  className;
     private String  methodName;

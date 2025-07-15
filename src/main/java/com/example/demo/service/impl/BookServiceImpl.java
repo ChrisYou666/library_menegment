@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -274,5 +275,19 @@ public class BookServiceImpl extends ServiceImpl<BookMapper, Book> implements Bo
         response.setHeader("Content-disposition", "attachment;filename*=utf-8''" + fileName + ".xlsx");
 
         EasyExcel.write(response.getOutputStream(), BookExcelDto.class).sheet("图书列表").doWrite(dtoList);
+    }
+
+    @Override
+    public Book getByName(String name) {
+        LambdaQueryWrapper<Book> qw = new LambdaQueryWrapper<Book>()
+                .eq(Book::getNameCn, name);
+        return baseMapper.selectOne(qw);
+    }
+
+    @Override
+    public Book getByISBN(String isbn) {
+        LambdaQueryWrapper<Book> qw = new LambdaQueryWrapper<Book>()
+                .eq(Book::getIsbn, isbn);
+        return baseMapper.selectOne(qw);
     }
 }

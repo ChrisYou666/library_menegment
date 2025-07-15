@@ -49,7 +49,6 @@ public class BookController {
     @LogExecution
     @PutMapping()
     public Result<String> updateBook(@RequestBody  Book dto) {
-
         bookService.updateBook(dto);
         return Result.success("更新成功");
     }

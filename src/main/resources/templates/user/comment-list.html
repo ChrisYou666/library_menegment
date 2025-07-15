@@ -29,7 +29,7 @@
                 <thead>
                 <tr>
                     <th data-i18n="id">ID</th>
-                    <th data-i18n="bookId">图书ID</th>
+                    <th data-i18n="bookName">图书名称</th>
                     <th data-i18n="byPerson">评论人</th>
                     <th data-i18n="content">内容</th>
                     <th data-i18n="rating">评分</th>
@@ -95,7 +95,7 @@
             data.forEach(item => {
                 html += `<tr>
                     <td>${item.id ?? ''}</td>
-                    <td>${item.bookId ?? ''}</td>
+                    <td>${item.bookName ?? ''}</td>
                     <td>${item.byPerson ?? ''}</td>
                     <td>${item.content ?? ''}</td>
                     <td>${item.rating ?? ''}</td>

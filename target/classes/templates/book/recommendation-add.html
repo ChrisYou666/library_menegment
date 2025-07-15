@@ -52,8 +52,8 @@
 <div class="main">
     <h2 style="text-align:center;margin-bottom:26px;font-weight:500;" data-i18n="addRecommendation">新增推荐</h2>
     <form id="recommendForm" autocomplete="off">
-        <label for="bookId"><span class="required">*</span><span data-i18n="bookId">图书ID</span></label>
-        <input type="text" id="bookId" required data-i18n-placeholder="enterBookId" placeholder="请输入图书ID" />
+        <label for="bookName"><span class="required">*</span><span data-i18n="bookName">图书名称</span></label>
+        <input type="text" id="bookName" required data-i18n-placeholder="enterBookName" placeholder="请输入图书Name" />
 
         <label for="recommendMonth"><span class="required">*</span><span data-i18n="recommendMonth">推荐月份</span></label>
         <input type="month" id="recommendMonth" required />
@@ -64,8 +64,8 @@
         <label for="status"><span class="required">*</span><span data-i18n="status">状态</span></label>
         <select id="status" required>
             <option value="" data-i18n="pleaseSelect">请选择</option>
-            <option value="0" data-i18n="visible">可见</option>
-            <option value="1" data-i18n="invisible">不可见</option>
+            <option value="1" data-i18n="visible">可见</option>
+            <option value="0" data-i18n="invisible">不可见</option>
         </select>
 
         <div class="btn-row">
@@ -95,18 +95,18 @@
 
         // 提交按钮事件
         $("#submitBtn").click(function () {
-            const bookId = $("#bookId").val().trim();
+            const bookName = $("#bookName").val().trim();
             const recommendMonth = $("#recommendMonth").val();
             const recommendReason = $("#recommendReason").val().trim();
             const status = $("#status").val();
 
-            if (!bookId || !recommendMonth || !recommendReason || status === "") {
+            if (!bookName || !recommendMonth || !recommendReason || status === "") {
                 javaex.optTip({ content: i18n[lang]['requiredFields'] || "请填写所有必填项", type: "error" });
                 return;
             }
 
             const data = {
-                bookId: parseInt(bookId),
+                bookName: bookName,
                 recommendMonth: recommendMonth,
                 recommendReason: recommendReason,
                 status: parseInt(status)

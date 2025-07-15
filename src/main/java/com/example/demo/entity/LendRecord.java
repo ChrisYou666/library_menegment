@@ -26,6 +26,7 @@ public class LendRecord {
     private Integer operatorId;
     private String remark;
     private Integer renewalCount;
+    private String userName;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

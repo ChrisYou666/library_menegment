@@ -38,8 +38,9 @@ public class LendRecordController {
      */
     @LogExecution
     @PostMapping
-    public void create(@Valid @RequestBody LendRecordDTO dto) {
-        svc.create(dto);
+    public Result<String> create(@Valid @RequestBody LendRecordDTO dto) {
+
+        return svc.create(dto);
     }
 
     @PutMapping("/{id}")

@@ -45,7 +45,7 @@
                 <tr align="center">
                     <th><input type="checkbox" id="selectAll"/></th>
                     <th data-i18n="id">ID</th>
-                    <th data-i18n="bookId">图书ID</th>
+                    <th data-i18n="bookName">图书名称</th>
                     <th data-i18n="recommendMonth">推荐月份</th>
                     <th data-i18n="recommendReason">推荐理由</th>
                     <th data-i18n="operator">操作人</th>
@@ -75,10 +75,10 @@
             html += "<tr align='center'>" +
                 "<td><input type='checkbox' class='rowBox' value='"+r.id+"'/></td>" +
                 "<td>"+(r.id||'')+"</td>" +
-                "<td>"+(r.bookId||'')+"</td>" +
+                "<td>"+(r.bookName||'')+"</td>" +
                 "<td>"+(r.recommendMonth||'')+"</td>" +
                 "<td>"+(r.recommendReason||'')+"</td>" +
-                "<td>"+(r.operatorId||'')+"</td>" +
+                "<td>"+(r.operatorName||'')+"</td>" +
                 "<td>"+(r.createTime||'')+"</td>" +
                 "<td>"+((r.status==1)?i18n[lang].visible:i18n[lang].invisible)+"</td>" +
                 "<td><button class='button yellow empty op-btn' onclick='deleteRecommend("+r.id+")'>"+i18n[lang].delete+"</button></td>" +

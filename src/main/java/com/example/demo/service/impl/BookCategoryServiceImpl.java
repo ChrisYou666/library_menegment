@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.demo.dto.BookCategoryDTO;
 import com.example.demo.entity.BookCategory;
 import com.example.demo.mapper.BookCategoryMapper;
@@ -19,7 +20,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class BookCategoryServiceImpl implements BookCategoryService {
+public class BookCategoryServiceImpl extends ServiceImpl<BookCategoryMapper,BookCategory>implements BookCategoryService {
     @Autowired
     private BookCategoryMapper mapper;
 

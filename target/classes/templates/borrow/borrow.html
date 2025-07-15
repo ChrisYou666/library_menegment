@@ -14,22 +14,34 @@
         .main input[type="text"], .main input[type="date"] {
             width: 100%; height: 36px; border-radius: 4px; border: 1px solid #ddd; padding: 0 10px; font-size: 16px;
         }
-        .main .btn-row { margin-top: 32px; text-align: center;}
+        .main .btn-row { margin-top: 32px; text-align: center; }
         .main .btn-row input { min-width: 92px; height: 38px; margin: 0 12px; border-radius: 5px; font-size: 17px; }
-        .required { color: #d20000; font-size: 18px; margin-right: 4px;}
+        .required { color: #d20000; font-size: 18px; margin-right: 4px; }
     </style>
 </head>
 <body>
 <div class="main">
     <h2 data-i18n="borrowBook" style="text-align:center;margin-bottom:26px;font-weight:500;">图书借阅</h2>
     <form id="lendForm" autocomplete="off">
-        <label for="bookId"><span class="required">*</span><span data-i18n="bookId">书籍ID</span></label>
-        <input type="text" id="bookId" name="bookId" required placeholder="请输入书籍ID" data-i18n-placeholder="bookId" />
+        <!-- ISBN -->
+        <label for="ISBN">
+            <span class="required">*</span>
+            <span data-i18n="ISBN编号">ISBN编号</span>
+        </label>
+        <input type="text" id="ISBN" name="ISBN" required placeholder="请输入图书编号" data-i18n-placeholder="ISBN编号" />
 
-        <label for="readerId"><span class="required">*</span><span data-i18n="userId">读者ID</span></label>
-        <input type="text" id="readerId" name="readerId" required placeholder="请输入读者ID" data-i18n-placeholder="userId" />
+        <!-- 用户名 -->
+        <label for="username">
+            <span class="required">*</span>
+            <span data-i18n="userName">用户名</span>
+        </label>
+        <input type="text" id="username" name="username" required placeholder="请输入用户名" data-i18n-placeholder="userName" />
 
-        <label><span class="required">*</span><span data-i18n="borrowBook">借阅时间段</span></label>
+        <!-- 借阅时间段 -->
+        <label>
+            <span class="required">*</span>
+            <span data-i18n="borrowBook">借阅时间段</span>
+        </label>
         <input type="date" id="lendTime" required style="margin-bottom:8px;" />
         <div style="margin-bottom: 3px; margin-left:3px; color:#888;" data-i18n="to">至</div>
         <input type="date" id="dueTime" required />
@@ -52,22 +64,22 @@
     });
 
     $("#submitBtn").click(function () {
-        var bookId = $("#bookId").val().trim();
-        var readerId = $("#readerId").val().trim();
-        var lendTime = $("#lendTime").val();
-        var dueTime = $("#dueTime").val();
+        var isbn = $("#ISBN").val().trim();
+        var username = $("#username").val().trim();
+        var lendDate = $("#lendTime").val();
+        var dueDate  = $("#dueTime").val();
 
-        if (!bookId || !readerId || !lendTime || !dueTime) {
+        if (!isbn || !username || !lendDate || !dueDate) {
             javaex.optTip({ content: "请填写所有必填项", type: "error" });
             return;
         }
 
-        var lendTimeFull = lendTime + " 00:00:00";
-        var dueTimeFull = dueTime + " 00:00:00";
+        var lendTimeFull = lendDate + " 00:00:00";
+        var dueTimeFull  = dueDate  + " 00:00:00";
 
-        var data = {
-            bookId: parseInt(bookId),
-            readerId: parseInt(readerId),
+        var payload = {
+            isbn: isbn,
+            username: username,
             lendTime: lendTimeFull,
             dueTime: dueTimeFull
         };
@@ -76,10 +88,16 @@
             type: "POST",
             url: "/api/LendRecord",
             contentType: "application/json",
-            data: JSON.stringify(data),
+            data: JSON.stringify(payload),
             success: function (res) {
-                javaex.message({ content: "借阅成功", type: "success" });
-                setTimeout(function () { window.location.href = "/borrow/back"; }, 1500);
+                if (res.code === 0) {
+                    javaex.message({ content: res.msg || "借阅成功", type: "success" });
+                    setTimeout(function () {
+                        window.location.href = "/book/book-search";
+                    }, 1500);
+                } else {
+                    javaex.optTip({ content: res.msg || "借阅失败", type: "error" });
+                }
             },
             error: function (xhr) {
                 var msg = (xhr.responseJSON && xhr.responseJSON.msg) ? xhr.responseJSON.msg : "借阅失败";

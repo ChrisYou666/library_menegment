@@ -28,7 +28,7 @@
                 <thead>
                 <tr align="center">
                     <th data-i18n="id">ID</th>
-                    <th data-i18n="bookId">书籍ID</th>
+                    <th data-i18n="bookName">书籍名称</th>
                     <th data-i18n="recommendMonth">推荐月份</th>
                     <th data-i18n="recommendReason">推荐理由</th>
                     <th data-i18n="createTime">创建时间</th>
@@ -91,7 +91,7 @@
         $.each(array, function(index, rec) {
             html += "<tr align='center'>" +
                 "<td>" + (rec.id || '') + "</td>" +
-                "<td>" + (rec.bookId || '') + "</td>" +
+                "<td>" + (rec.bookName || '') + "</td>" +
                 "<td>" + (rec.recommendMonth || '') + "</td>" +
                 "<td>" + (rec.recommendReason || '') + "</td>" +
                 "<td>" + (rec.createTime || '') + "</td>" +
