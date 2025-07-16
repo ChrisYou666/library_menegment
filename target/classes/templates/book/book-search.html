@@ -37,6 +37,7 @@
                     <th data-i18n="translator">译者</th>
                     <th data-i18n="publisher">出版社</th>
                     <th data-i18n="publishDate">出版日期</th>
+                    <th data-i18n="coverImage">封面</th>
                     <th data-i18n="price">定价</th>
                     <th data-i18n="category">分类ID</th>
                     <th data-i18n="ratingAvg">评分</th>
@@ -108,6 +109,7 @@
         $.each(array, function(index, value) {
             const price = value.price || '';
             const unit = getCurrencyName(value.translationunit);
+            const cover = value.coverImage || '';
             text += "<tr align='center'>" +
                 "<td>"+(value.id || '')+"</td>" +
                 "<td>"+(value.bookNumber || '')+"</td>" +
@@ -119,6 +121,7 @@
                 "<td>"+(value.translator || '')+"</td>" +
                 "<td>"+(value.publisher || '')+"</td>" +
                 "<td>"+(value.publishDate || '')+"</td>" +
+                "<td>" + (cover ? "<img src='" + cover + "' style='max-height:50px; max-width:80px;'/>" : "") + "</td>" +
                 "<td>"+(price + (unit ? ' ' + unit : ''))+"</td>" +
                 "<td>"+(value.categoryId || '')+"</td>" +
                 "<td>"+(value.ratingAvg || '')+"</td>" +

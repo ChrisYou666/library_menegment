@@ -71,6 +71,7 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public List<TrendPoint> getVisitTrend() {
+
         return sysLogMapper.countUniqueLoginsByDay();
     }
 }

@@ -185,6 +185,17 @@
                     </div>
                 </div>
 
+                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="coverImage">封面图片地址</p></div>
+                    <div class="right">
+                        <input type="text" id="coverImage" name="coverImage" class="text" placeholder="图片URL" style="width:300px;display:inline-block;" data-i18n-placeholder="coverImage" />
+                        <span class="cover-upload">
+                            <input type="file" id="coverFile" accept="image/*" style="display:inline-block;width:auto;" />
+                        </span>
+                        <img id="coverPreview" src="" alt="封面预览" />
+                        <div class="error-tip" id="coverImage-error"></div>
+                    </div>
+                </div>
+
                 <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="ratingAvg">评分</p></div>
                     <div class="right">
                         <input type="text" id="ratingAvg" class="text" placeholder="评分" data-i18n-placeholder="ratingAvg" />
@@ -198,6 +209,7 @@
                         <input type="button" id="save" class="button yes" value="保存" data-i18n="save" />
                     </div>
                 </div>
+            </form>
         </div>
     </div>
 </div>
@@ -212,13 +224,11 @@
     window.validateField = function(id) {
         const lang = getLang();
         const val = $(`#${id}`).val().trim();
-
         const getI18n = function(key) {
             const i18n = window.i18n || {};
             const langMap = i18n[lang] || {};
             return langMap[key] || key;
         };
-
         switch (id) {
             case "bookNumber": return val === "" ? getI18n("validateBookNumber") : "";
             case "isbn": return val === "" ? getI18n("validateIsbn") : "";
@@ -253,6 +263,34 @@
             loadLang(lang);
             bindRealTimeValidation();
         }, 100);
+
+        // 上传封面
+        $("#coverFile").change(function () {
+            const file = this.files[0];
+            if (!file) return;
+            const formData = new FormData();
+            formData.append("file", file);
+            $.ajax({
+                url: "/api//upload",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (res) {
+                    if (res.code === 0) {
+                        $("#coverImage").val(res.data);  // 存储路径
+                        $("#coverPreview").attr("src", res.data).show();  // 显示预览
+                        javaex.message({ content: "上传成功", type: "success" });
+                    } else {
+                        javaex.optTip({ content: res.msg || "上传失败", type: "error" });
+                    }
+                },
+                error: function () {
+                    javaex.optTip({ content: "上传请求失败", type: "error" });
+                }
+            });
+        });
+
 
         $("#return").click(() => {
             const lang = getLang();
@@ -291,7 +329,8 @@
                 borrowCount: $("#borrowCount").val(),
                 status: $("#status").val(),
                 description: $("#description").val(),
-                ratingAvg: $("#ratingAvg").val()
+                ratingAvg: $("#ratingAvg").val(),
+                coverImage: $("#coverImage").val()
             };
 
             $.ajax({
@@ -314,6 +353,5 @@
         });
     });
 </script>
-
 </body>
 </html>

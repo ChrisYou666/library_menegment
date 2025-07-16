@@ -15,6 +15,7 @@ public class PageController {
      */
     @GetMapping({"/", "/login"})
     public String login() {
+
         return "login";  // 渲染 templates/login.html
     }
 
@@ -23,6 +24,7 @@ public class PageController {
      */
     @GetMapping("/index")
     public String index() {
+
         return "index";  // 渲染 templates/index.html
     }
 
@@ -31,15 +33,17 @@ public class PageController {
      */
     @GetMapping("/{page:^(?!api$|login$|index$)[\\w\\-]+}")
     public String singlePage(@PathVariable String page) {
+
         return page;      // 渲染 templates/{page}.html
     }
 
     /**
      * 模块子页映射，如 /book/list 对应 templates/book/list.html
      */
-    @GetMapping("/{module}/{page}" )
+
+    @GetMapping("/{module:^(?!api$|login$|index$|uploads$)[\\w\\-]+}/{page}")
     public String modulePage(@PathVariable String module,
                              @PathVariable String page) {
-        return module + "/" + page;  // 渲染 templates/{module}/{page}.html
+        return module + "/" + page;
     }
 }

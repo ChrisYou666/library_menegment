@@ -56,6 +56,7 @@
                     <th data-i18n="translator">译者</th>
                     <th data-i18n="publisher">出版社</th>
                     <th data-i18n="publishDate">出版日期</th>
+                    <th data-i18n="coverImage">封面</th>
                     <th data-i18n="price">定价</th>
                     <th data-i18n="stock">库存</th>
                     <th data-i18n="available">可借数</th>
@@ -119,7 +120,7 @@
             data: params,
             success: function(result) {
                 if (result.code !== 0) {
-                    $("#tbody").html("<tr><td colspan='19'>加载失败：" + (result.msg || "未知错误") + "</td></tr>");
+                    $("#tbody").html("<tr><td colspan='20'>加载失败：" + (result.msg || "未知错误") + "</td></tr>");
                     return;
                 }
                 const data = result.data || {};
@@ -138,6 +139,7 @@
             const id = value.id || '';
             const price = value.price || '';
             const unit = getCurrencyName(value.translationunit);
+            const cover = value.coverImage || '';
             text += "<tr align='center'>" +
                 "<td><input type='checkbox' class='rowBox' value='"+id+"'/></td>" +
                 "<td>"+id+"</td>" +
@@ -149,6 +151,7 @@
                 "<td>"+(value.translator||'')+"</td>" +
                 "<td>"+(value.publisher||'')+"</td>" +
                 "<td>"+(value.publishDate||'')+"</td>" +
+                "<td>" + (cover ? "<img src='" + cover + "' style='max-height:50px;'/>" : "") + "</td>"+
                 "<td>"+(price + (unit ? ' ' + unit : ''))+"</td>" +
                 "<td>"+(value.totalQuantity||'')+"</td>" +
                 "<td>"+(value.availableQuantity||'')+"</td>" +

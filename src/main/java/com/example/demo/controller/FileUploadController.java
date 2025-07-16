@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 
@@ -15,8 +16,7 @@ import java.io.IOException;
 @RequestMapping("/api")
 public class FileUploadController {
 
-    // 这里的 uploadPath 可用 application.properties 配置，指向静态目录
-    @Value("${file.upload-path:uploads}")
+    @Value("${file.upload-path}")
     private String uploadPath;
 
     @PostMapping("/upload")
@@ -25,20 +25,22 @@ public class FileUploadController {
             return Result.error("文件为空");
         }
         try {
-            // 创建目录
-            File dir = new File(uploadPath);
-            if (!dir.exists()) dir.mkdirs();
+            // 确保目录存在
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdirs();
+            }
 
+            // 保存文件
             String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-            File dest = new File(dir, fileName);
+            File dest = new File(uploadDir, fileName);
             file.transferTo(dest);
 
-            // 访问URL，根据实际部署环境调整
-            String url = "/uploads/" + fileName;
-            return Result.success(url);
+            // 返回访问URL（统一用 /uploads/ 前缀）
+            return Result.success("/uploads/" + fileName);
         } catch (IOException e) {
-            e.printStackTrace();
-            return Result.error("文件上传失败");
+            return Result.error("上传失败：" + e.getMessage());
         }
     }
+
 }

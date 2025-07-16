@@ -31,6 +31,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                                     FilterChain filterChain)
             throws ServletException, IOException {
 
+        String uri = request.getRequestURI();
+        if (uri.startsWith("/uploads/")) {
+            filterChain.doFilter(request, response);
+            return;
+        }
+
         // 1. 先从 Authorization 头读取
         String token = null;
         String header = request.getHeader("Authorization");

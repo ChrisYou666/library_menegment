@@ -12,15 +12,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    // 配置JWT过滤器
+    @Value("${file.upload-path}")
+    private String uploadPath;
+
     @Bean
     public JwtAuthenticationFilter jwtAuthenticationFilter() {
         return new JwtAuthenticationFilter();
     }
-
-    // 读取配置文件里的上传路径
-    @Value("${file.upload-path}")
-    private String uploadPath;
 
     @Bean
     public FilterRegistrationBean<JwtAuthenticationFilter> jwtAuthFilter(JwtAuthenticationFilter filter) {
@@ -35,12 +33,16 @@ public class WebConfig implements WebMvcConfigurer {
         return reg;
     }
 
-    // 关键：静态资源映射，解决图片无法访问的问题
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        String resourceLocation = "file:" + (uploadPath.endsWith("/") ? uploadPath : uploadPath + "/");
-        System.out.println("=== 静态资源映射: /uploads/** --> " + resourceLocation);
+        // 转换为标准文件路径格式（file:///...）
+        String location = "file:" + uploadPath.replace("\\", "/");
+        if (!location.endsWith("/")) {
+            location += "/";
+        }
+
         registry.addResourceHandler("/uploads/**")
-                .addResourceLocations(resourceLocation);
+                .addResourceLocations(location)
+                .setCachePeriod(3600);
     }
 }

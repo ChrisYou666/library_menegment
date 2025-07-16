@@ -220,7 +220,8 @@ window.i18n = {
         bookRecommendation: "图书推荐",
         currencyCNY: "人民币",
         currencyUSD: "美元",
-        currencyIDR: "印尼盾"
+        currencyIDR: "印尼盾",
+        coverImage: "封面",
     },
 
     en: {
@@ -433,8 +434,8 @@ window.i18n = {
         bookRecommendation: "Book Recommendation",
         currencyCNY: "CNY",
         currencyUSD: "USD",
-        currencyIDR: "IDR"
-
+        currencyIDR: "IDR",
+        coverImage: "Cover",
     },
     id: {
         title: "Panel Admin",
@@ -646,7 +647,8 @@ window.i18n = {
         bookRecommendation: "Rekomendasi Buku",
         currencyCNY: "RMB",
         currencyUSD: "Dolar AS",
-        currencyIDR: "Rupiah"
+        currencyIDR: "Rupiah",
+        coverImage: "Sampul",
     }
 };
 function loadLang(lang) {
