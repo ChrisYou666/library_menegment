@@ -35,6 +35,7 @@ public class Book {
     private String description;
     private String coverImage;
     private BigDecimal ratingAvg;
+    private String translationunit;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

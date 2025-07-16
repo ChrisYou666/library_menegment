@@ -105,8 +105,13 @@
                     </div>
                 </div>
                 <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="price">定价</p></div>
-                    <div class="right">
+                    <div class="right" style="display: flex; align-items: center;">
                         <input type="text" id="price" name="price" class="text" placeholder="定价" data-i18n-placeholder="price" />
+                        <select id="currency" name="translationunit" class="currency-select">
+                            <option value="CNY" data-i18n="currencyCNY">人民币</option>
+                            <option value="USD" data-i18n="currencyUSD">美元</option>
+                            <option value="IDR" data-i18n="currencyIDR">印尼盾</option>
+                        </select>
                         <div class="error-tip" id="price-error"></div>
                     </div>
                 </div>
@@ -267,6 +272,7 @@
             if (!valid) return;
             const formData = {};
             $("#bookForm").serializeArray().forEach(({name, value}) => formData[name] = value);
+            formData.translationunit = $("#currency").val();
             $.ajax({
                 url: "/api/book",
                 type: "PUT",

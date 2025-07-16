@@ -78,15 +78,24 @@
 <script>
     var pageSize = 10;
     var currentPage = 1;
+    var lang = "zh";
 
     function getQueryParam(name) {
         const url = new URL(window.location.href);
         return url.searchParams.get(name);
     }
 
+    function getCurrencyName(unit) {
+        const map = {
+            CNY: { zh: "元", en: "CNY", id: "Rupiah" },
+            USD: { zh: "美元", en: "USD", id: "Dollar" },
+            IDR: { zh: "印尼盾", en: "IDR", id: "Rupiah" }
+        };
+        return unit && map[unit] ? (map[unit][lang] || unit) : "";
+    }
+
     $(function(){
-        // 读取 URL 参数中的 lang，或使用默认中文
-        const lang = getQueryParam("lang") || "zh";
+        lang = getQueryParam("lang") || "zh";
         loadLang(lang);
         loadBooks();
     });
@@ -127,6 +136,8 @@
         let text = "";
         $.each(array, function(index, value) {
             const id = value.id || '';
+            const price = value.price || '';
+            const unit = getCurrencyName(value.translationunit);
             text += "<tr align='center'>" +
                 "<td><input type='checkbox' class='rowBox' value='"+id+"'/></td>" +
                 "<td>"+id+"</td>" +
@@ -138,7 +149,7 @@
                 "<td>"+(value.translator||'')+"</td>" +
                 "<td>"+(value.publisher||'')+"</td>" +
                 "<td>"+(value.publishDate||'')+"</td>" +
-                "<td>"+(value.price||'')+"</td>" +
+                "<td>"+(price + (unit ? ' ' + unit : ''))+"</td>" +
                 "<td>"+(value.totalQuantity||'')+"</td>" +
                 "<td>"+(value.availableQuantity||'')+"</td>" +
                 "<td>"+(value.borrowCount||'')+"</td>" +

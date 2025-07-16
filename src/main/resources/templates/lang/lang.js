@@ -217,6 +217,10 @@ window.i18n = {
         saveFailed: "保存失败：",
         requestError: "请求出错",
         validateNameCn: "中文书名不能为空",
+        bookRecommendation: "图书推荐",
+        currencyCNY: "人民币",
+        currencyUSD: "美元",
+        currencyIDR: "印尼盾"
     },
 
     en: {
@@ -426,6 +430,10 @@ window.i18n = {
         saveFailed: "Save failed: ",
         requestError: "Request error",
         validateNameCn: "Chinese title cannot be empty",
+        bookRecommendation: "Book Recommendation",
+        currencyCNY: "CNY",
+        currencyUSD: "USD",
+        currencyIDR: "IDR"
 
     },
     id: {
@@ -635,6 +643,10 @@ window.i18n = {
         saveFailed: "Gagal menyimpan: ",
         requestError: "Permintaan gagal",
         validateNameCn: "Judul Cina tidak boleh kosong",
+        bookRecommendation: "Rekomendasi Buku",
+        currencyCNY: "RMB",
+        currencyUSD: "Dolar AS",
+        currencyIDR: "Rupiah"
     }
 };
 function loadLang(lang) {

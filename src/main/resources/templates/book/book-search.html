@@ -64,6 +64,15 @@
         loadBooks();
     }
 
+    function getCurrencyName(unit) {
+        const map = {
+            CNY: { zh: "元", en: "CNY", id: "Rupiah" },
+            USD: { zh: "美元", en: "USD", id: "Dollar" },
+            IDR: { zh: "印尼盾", en: "IDR", id: "Rupiah" }
+        };
+        return unit && map[unit] ? (map[unit][lang] || unit) : "";
+    }
+
     function loadBooks() {
         var keyword = $("#keyword").val().trim();
 
@@ -97,6 +106,8 @@
     function renderTable(array) {
         var text = "";
         $.each(array, function(index, value) {
+            const price = value.price || '';
+            const unit = getCurrencyName(value.translationunit);
             text += "<tr align='center'>" +
                 "<td>"+(value.id || '')+"</td>" +
                 "<td>"+(value.bookNumber || '')+"</td>" +
@@ -108,7 +119,7 @@
                 "<td>"+(value.translator || '')+"</td>" +
                 "<td>"+(value.publisher || '')+"</td>" +
                 "<td>"+(value.publishDate || '')+"</td>" +
-                "<td>"+(value.price || '')+"</td>" +
+                "<td>"+(price + (unit ? ' ' + unit : ''))+"</td>" +
                 "<td>"+(value.categoryId || '')+"</td>" +
                 "<td>"+(value.ratingAvg || '')+"</td>" +
                 "<td>"+(value.location || '')+"</td>" +

@@ -16,6 +16,10 @@
             font-size: 12px;
             padding-top: 4px;
         }
+        .currency-select {
+            width: 120px;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -96,9 +100,15 @@
                     </div>
                 </div>
 
-                <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="price">定价</p></div>
-                    <div class="right">
+                <div class="unit clear">
+                    <div class="left"><p class="subtitle" data-i18n="price">定价</p></div>
+                    <div class="right" style="display: flex; align-items: center;">
                         <input type="text" id="price" class="text" placeholder="定价" data-i18n-placeholder="price" />
+                        <select id="currency" class="currency-select">
+                            <option value="CNY" data-i18n="currencyCNY">人民币</option>
+                            <option value="USD" data-i18n="currencyUSD">美元</option>
+                            <option value="IDR" data-i18n="currencyIDR">印尼盾</option>
+                        </select>
                         <div class="error-tip" id="price-error"></div>
                     </div>
                 </div>
@@ -166,6 +176,8 @@
                     </div>
                 </div>
 
+
+
                 <div class="unit clear"><div class="left"><p class="subtitle" data-i18n="description">描述</p></div>
                     <div class="right">
                         <input type="text" id="description" class="text" placeholder="描述" data-i18n-placeholder="description" />
@@ -193,17 +205,14 @@
 <script>
     javaex.date({ id : "publishDate", isTime : false });
 
-    // 获取语言
     window.getLang = function () {
         return localStorage.getItem("lang") || "zh";
     };
 
-    // 校验字段
     window.validateField = function(id) {
         const lang = getLang();
         const val = $(`#${id}`).val().trim();
 
-        // ✅ 安全获取语言字段，避免 i18n 未加载时报错
         const getI18n = function(key) {
             const i18n = window.i18n || {};
             const langMap = i18n[lang] || {};
@@ -211,14 +220,10 @@
         };
 
         switch (id) {
-            case "bookNumber":
-                return val === "" ? getI18n("validateBookNumber") : "";
-            case "isbn":
-                return val === "" ? getI18n("validateIsbn") : "";
-            case "nameCn":
-                return val === "" ? getI18n("validateNameCn") : "";
-            case "price":
-                return val && !/^\d+(\.\d{1,2})?$/.test(val) ? getI18n("validatePrice") : "";
+            case "bookNumber": return val === "" ? getI18n("validateBookNumber") : "";
+            case "isbn": return val === "" ? getI18n("validateIsbn") : "";
+            case "nameCn": return val === "" ? getI18n("validateNameCn") : "";
+            case "price": return val && !/^\d+(\.\d{1,2})?$/.test(val) ? getI18n("validatePrice") : "";
             case "ratingAvg":
                 if (val && !/^\d+(\.\d{1,2})?$/.test(val)) return getI18n("validateRating");
                 if (val && (parseFloat(val) < 0 || parseFloat(val) > 5)) return getI18n("validateRatingRange");
@@ -227,12 +232,10 @@
             case "availableQuantity":
             case "borrowCount":
                 return val && !/^\d+$/.test(val) ? getI18n("validateInteger") + getI18n(id) : "";
-            default:
-                return "";
+            default: return "";
         }
     };
 
-    // 实时校验绑定
     function bindRealTimeValidation() {
         const fields = ["bookNumber", "isbn", "nameCn", "price", "ratingAvg", "totalQuantity", "availableQuantity", "borrowCount"];
         fields.forEach(id => {
@@ -243,22 +246,19 @@
         });
     }
 
-    // 页面初始化（✅ 加了延迟执行，确保 lang.js 加载完成）
     $(function () {
         const lang = getLang();
 
         setTimeout(() => {
-            loadLang(lang);           // 加载语言翻译
-            bindRealTimeValidation(); // 绑定输入框校验
-        }, 100); // 延迟 100ms 防止 lang.js 未加载完
+            loadLang(lang);
+            bindRealTimeValidation();
+        }, 100);
 
-        // 返回按钮
         $("#return").click(() => {
             const lang = getLang();
             window.location.href = "book-list.html?lang=" + lang;
         });
 
-        // 保存按钮点击
         $("#save").click(function () {
             let valid = true;
             const fields = ["bookNumber", "isbn", "nameCn", "price", "ratingAvg", "totalQuantity", "availableQuantity", "borrowCount"];
@@ -268,6 +268,9 @@
                 if (error) valid = false;
             });
             if (!valid) return;
+
+            const priceValue = $("#price").val();
+            const currencyValue = $("#currency").val();
 
             const bookDto = {
                 bookNumber: $("#bookNumber").val(),
@@ -279,7 +282,8 @@
                 translator: $("#translator").val(),
                 publisher: $("#publisher").val(),
                 publishDate: $("#publishDate").val(),
-                price: $("#price").val(),
+                price: priceValue,
+                translationunit: currencyValue,
                 categoryId: $("#categoryId").val(),
                 location: $("#location").val(),
                 totalQuantity: $("#totalQuantity").val(),

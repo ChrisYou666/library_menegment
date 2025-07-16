@@ -1,137 +1,170 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<!--字体图标-->
-<link href="../javaex/pc/css/icomoon.css" rel="stylesheet" />
-<!--动画-->
-<link href="../javaex/pc/css/animate.css" rel="stylesheet" />
-<!--骨架样式-->
-<link href="../javaex/pc/css/common.css" rel="stylesheet" />
-<!--皮肤（缇娜）-->
-<link href="../javaex/pc/css/skin/tina.css" rel="stylesheet" />
-<!--jquery，不可修改版本-->
-<script src="../javaex/pc/lib/jquery-1.7.2.min.js"></script>
-<!--全局动态修改-->
-<script src="../javaex/pc/js/common.js"></script>
-<!--核心组件-->
-<script src="../javaex/pc/js/javaex.min.js"></script>
-<!--表单验证-->
-<script src="../javaex/pc/js/javaex-formVerify.js"></script>
+    <meta charset="utf-8">
+    <title data-i18n="bookRecommendation">图书推荐</title>
+    <link href="../../javaex/pc/css/common.css" rel="stylesheet" />
+    <link href="../../javaex/pc/css/skin/tina.css" rel="stylesheet" />
+    <script src="../../javaex/pc/lib/jquery-1.7.2.min.js"></script>
+    <script src="../../javaex/pc/js/javaex.min.js"></script>
     <script src="/lang/lang.js"></script>
-    <script>
-        $(function () {
-            const lang = localStorage.getItem("lang") || "zh";
-            loadLang(lang);
-        });
-    </script>
-<title>后台管理</title>
-<style>
-    .ex-slide ul.focus-bg a{display: block; width: 100%; height: 100%; background: no-repeat 50%; background-size: cover;}
-    .ex-slide .wrapper{width: 1420px; height: 106px; margin: 0 auto; position: relative; margin-top: 414px;}
-    .ex-slide .focus-box{width: 100%; height: 106px;margin: 0 auto; position: absolute; left: 0; bottom: 0; filter: progid:DXImageTransform.Microsoft.gradient(enabled='true', startColorstr='#4C000000', endColorstr='#4C000000'); background: rgba(0,0,0,.3);}
-    .ex-slide .focus-box ul{padding-left: 20px;padding: 18px 0 0 18px; overflow: hidden;}
-    .ex-slide .focus-box li{float: left; width: 140px; height: 70px; margin-right: 15px; position: relative;}
-    .ex-slide .focus-box li img{display: block; width: 140px; height: 70px; position: relative;}
-    .ex-slide .focus-box li.on img{border: 3px solid #24baf1;}
-    
-    .ex-slide{width: 100%; height: 720px;}
-    .ex-slide ul.focus-bg li{width: 100%; height: 720px;}
-</style>  
+    <style>
+        body {
+            background-color: #f5f6fa;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .recommendation-box {
+            width: 90%;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        .recommendation-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .recommendation-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #e0e0e0;
+            table-layout: fixed;
+            margin: 0 auto;
+        }
+        .recommendation-table th, .recommendation-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            word-wrap: break-word;
+            word-break: break-all;
+            vertical-align: top;
+        }
+        .recommendation-table th {
+            background-color: #ecf0f1;
+            color: #34495e;
+            font-weight: bold;
+        }
+        .recommendation-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .recommendation-table tr:hover {
+            background-color: #f1f1f1;
+        }
+        .recommendation-table td:nth-child(1) {
+            width: 20%;
+        }
+        .recommendation-table td:nth-child(2) {
+            width: 15%;
+        }
+        .recommendation-table td:nth-child(3) {
+            width: 65%;
+        }
+        .page {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .pagination li {
+            display: inline-block;
+            margin: 0 5px;
+            padding: 6px 12px;
+            background-color: #eaeaea;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .pagination li.active {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-    <!--  头部导航  -->
-	<div class="breadcrumb">
-        <!-- <span>总览</span> -->
-        <span class="divider">/</span>
-        <span class="active"></span>
+<div class="recommendation-box">
+    <div class="recommendation-title" data-i18n="bookRecommendation">图书推荐</div>
+    <table class="recommendation-table">
+        <thead>
+        <tr>
+            <th data-i18n="bookName">书籍名称</th>
+            <th data-i18n="recommendMonth">推荐月份</th>
+            <th data-i18n="recommendReason">推荐理由</th>
+        </tr>
+        </thead>
+        <tbody id="recommendation-tbody"></tbody>
+    </table>
+    <div class="page">
+        <ul id="pagination" class="pagination"></ul>
     </div>
-    <!--幻灯片-->
-    <div style="width: 100%; height: 520px;">
-        <!--幻灯片-->
-        <div id="slide" class="ex-slide">
-            <!--背景大图-->
-            <ul class="focus-bg">
-                <li>
-                    <a style="background-image: url('../javaex/img/7.jpg')">
-                    </a>
-                </li>
-                <li>
-                    <a style="background-image: url('../javaex/img/2.jpg')">
-                    </a>
-                </li>
-                <li>
-                    <a style="background-image: url('../javaex/img/3.jpg')">
-                    </a>
-                </li>
-                <li>
-                    <a style="background-image: url('../javaex/img/4.jpg')">
-                    </a>
-                </li>
-                <li>
-                    <a style="background-image: url('../javaex/img/5.jpg')">
-                    </a>
-                </li>
-                <li>
-                    <a style="background-image: url('../javaex/img/6.jpg')">
-                    </a>
-                </li>
-                <li>
-                    <a style="background-image: url('../javaex/img/1.jpg')">
-                    </a>
-                </li>
-                <li>
-                    <a style="background-image: url('../javaex/img/8.jpg')">
-                    </a>
-                </li>
-                <li>
-                    <a style="background-image: url('../javaex/img/9.jpg')">
-                    </a>
-                </li>
-            </ul>
-    
-            <div class="wrapper">
-                <!--焦点，如果不需要焦点的话，直接去掉这个div即可-->
-                <div class="focus-box">
-                    <ul>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/7.jpg" /></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/2.jpg" /></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/3.jpg" /></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/4.jpg" /></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/5.jpg" /></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/6.jpg" /></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/1.jpg" /></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/8.jpg" /></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"><img src="../javaex/img/9.jpg" /></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <script>
-        javaex.slide({
-            id : "slide",
-            delay : 3000
+</div>
+
+<script>
+    function getQueryParam(name) {
+        const url = new URL(window.location.href);
+        return url.searchParams.get(name);
+    }
+
+    const lang = getQueryParam("lang") || localStorage.getItem("lang") || "zh";
+
+    let pageSize = 10;
+    let currentPage = 1;
+
+    function loadRecommendations(page = 1) {
+        $.ajax({
+            type: "GET",
+            url: "/api/recommendation/search",
+            data: { page: page, size: pageSize },
+            success: function(result) {
+                if (result.code !== 0) {
+                    $("#recommendation-tbody").html("<tr><td colspan='3'>" + (result.msg || i18n[lang].loadFailed || "加载失败") + "</td></tr>");
+                    return;
+                }
+                const data = result.data || {};
+                const records = data.records || [];
+                let html = "";
+                records.forEach(rec => {
+                    html += `<tr>
+                        <td>${rec.bookName || ''}</td>
+                        <td>${rec.recommendMonth || ''}</td>
+                        <td>${rec.recommendReason || ''}</td>
+                    </tr>`;
+                });
+                if (html === "") {
+                    html = "<tr><td colspan='3'>" + i18n[lang].noData + "</td></tr>";
+                }
+                $("#recommendation-tbody").html(html);
+
+                renderPage(data.total || 0, data.current || 1, data.size || pageSize);
+            },
+            error: function() {
+                $("#recommendation-tbody").html("<tr><td colspan='3'>" + i18n[lang].dataLoadFailed + "</td></tr>");
+            }
         });
-    </script>
+    }
+
+    function renderPage(total, curr, size) {
+        const totalPage = Math.ceil(total / size);
+        const $pagination = $("#pagination");
+        $pagination.empty();
+
+        for (let i = 1; i <= totalPage; i++) {
+            const li = $(`<li>${i}</li>`);
+            if (i === curr) {
+                li.addClass("active");
+            }
+            li.click(function() {
+                currentPage = i;
+                loadRecommendations(currentPage);
+            });
+            $pagination.append(li);
+        }
+    }
+
+    $(document).ready(function() {
+        loadLang(lang);           // ✅ 翻译在 DOM 完成后执行
+        loadRecommendations();    // ✅ 数据加载
+    });
+</script>
 </body>
 </html>

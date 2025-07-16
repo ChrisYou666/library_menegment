@@ -17,4 +17,5 @@ public class BookDto {
     private String location;
     private Integer totalQuantity, availableQuantity;
     private Integer status;
+    private String translationunit;
 }
