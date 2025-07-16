@@ -199,6 +199,6 @@ public class BookController {
                             @RequestParam(required = false) String nameCn,
                             @RequestParam(required = false) String author,
                             @RequestParam(required = false) String isbn) throws IOException {
-        bookService.exportToExcel(response, nameCn, author, isbn);
+        bookService.exportToExcel(response, null, null, null);
     }
 }

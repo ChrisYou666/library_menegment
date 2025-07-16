@@ -284,9 +284,8 @@
     });
 
     $("#exportExcel").click(function () {
-        const keyword = $("#keyword").val().trim();
-        const query = $.param({ keyword });
-        window.location.href = "/api/book/export?" + query;
+        window.location.href = "/api/book/export";
+        javaex.message({ content: "导出任务已开始，请查看浏览器下载", type: "success" });
     });
 </script>
 </body>

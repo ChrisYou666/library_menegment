@@ -1,4 +1,4 @@
-const i18n = {
+window.i18n = {
     zh: {
         // 系统基础
         title: "后台管理",
@@ -208,6 +208,15 @@ const i18n = {
         requestFailed: "请求失败",
         back: "返回",
         update: "更新",
+        validateBookNumber: "图书编号不能为空",
+        validateIsbn: "ISBN编号不能为空",
+        validatePrice: "定价格式错误，应为数字",
+        validateRating: "评分格式错误，应为数字",
+        validateRatingRange: "评分范围应为0~5",
+        validateInteger: "请输入整数：",
+        saveFailed: "保存失败：",
+        requestError: "请求出错",
+        validateNameCn: "中文书名不能为空",
     },
 
     en: {
@@ -407,7 +416,17 @@ const i18n = {
         updateFailed: "Update Failed",
         requestFailed: "Request Failed",
         back: "Back",
-        update: "Update"
+        update: "Update",
+        validateBookNumber: "Book number cannot be empty",
+        validateIsbn: "ISBN cannot be empty",
+        validatePrice: "Invalid price format",
+        validateRating: "Invalid rating format",
+        validateRatingRange: "Rating must be between 0 and 5",
+        validateInteger: "Please enter an integer: ",
+        saveFailed: "Save failed: ",
+        requestError: "Request error",
+        validateNameCn: "Chinese title cannot be empty",
+
     },
     id: {
         title: "Panel Admin",
@@ -606,7 +625,16 @@ const i18n = {
         updateFailed: "Gagal Memperbarui",
         requestFailed: "Permintaan Gagal",
         back: "Kembali",
-        update: "Perbarui"
+        update: "Perbarui",
+        validateBookNumber: "Nomor buku tidak boleh kosong",
+        validateIsbn: "ISBN tidak boleh kosong",
+        validatePrice: "Format harga tidak valid",
+        validateRating: "Format penilaian tidak valid",
+        validateRatingRange: "Penilaian harus antara 0 dan 5",
+        validateInteger: "Masukkan bilangan bulat: ",
+        saveFailed: "Gagal menyimpan: ",
+        requestError: "Permintaan gagal",
+        validateNameCn: "Judul Cina tidak boleh kosong",
     }
 };
 function loadLang(lang) {

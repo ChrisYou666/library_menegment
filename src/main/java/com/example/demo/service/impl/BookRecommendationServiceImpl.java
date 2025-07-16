@@ -155,8 +155,13 @@ public class BookRecommendationServiceImpl extends ServiceImpl<BookRecommendatio
     @Override
     public Page<BookRecommendationVO> searchRecommendations(String keyword, int page, int size) {
 
+        Integer id = Math.toIntExact(userContext.getUserId());
+        User user = userService.getById(id);
+        Integer role=user.getRole();
+
         LambdaQueryWrapper<BookRecommendation> wrapper = new LambdaQueryWrapper<>();
 
+        // keyword 关键字过滤
         if (StringUtils.isNotBlank(keyword)) {
             wrapper.and(w -> {
                 w.like(BookRecommendation::getRecommendReason, keyword)
@@ -168,11 +173,19 @@ public class BookRecommendationServiceImpl extends ServiceImpl<BookRecommendatio
             });
         }
 
+        // 角色限制逻辑：role 为 2 时，仅查看 status=1 的记录
+        if (role == 2) {
+            wrapper.eq(BookRecommendation::getStatus, 1);
+        }
+
+        // 排序
         wrapper.orderByDesc(BookRecommendation::getId);
 
+        // 分页查询
         Page<BookRecommendation> entityPage = new Page<>(page, size);
         this.page(entityPage, wrapper);
 
+        // 转 VO 并封装分页结果
         Page<BookRecommendationVO> voPage = new Page<>(page, size, entityPage.getTotal());
         voPage.setRecords(entityPage.getRecords().stream()
                 .map(this::toVO)
@@ -180,6 +193,7 @@ public class BookRecommendationServiceImpl extends ServiceImpl<BookRecommendatio
 
         return voPage;
     }
+
 
     private BookRecommendationVO toVO(BookRecommendation e) {
         BookRecommendationVO vo = new BookRecommendationVO();
