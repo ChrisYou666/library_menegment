@@ -66,16 +66,21 @@
 
 <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const bookId = urlParams.get("bookId");
+    const bookName = decodeURIComponent(urlParams.get("bookName") || "");
+    const userName = decodeURIComponent(urlParams.get("userName") || "");
     const lang = urlParams.get("lang") || localStorage.getItem("lang") || "zh";
 
-    $("#bookId").val(bookId);
     localStorage.setItem("lang", lang);
     loadLang(lang);
 
     function submitComment() {
         const comment = $("#commentText").val().trim();
         const score = parseInt($("#rating").val());
+
+        if (!bookName || !userName) {
+            javaex.optTip({ content: "缺少书名或用户名参数", type: "error" });
+            return;
+        }
 
         if (!comment) {
             javaex.optTip({ content: i18n[lang].commentRequired || "请输入评论内容", type: "error" });
@@ -87,15 +92,20 @@
             return;
         }
 
+        const payload = {
+            bookName: bookName,
+            userName: userName,
+            content: comment,
+            rating: score
+        };
+
+        console.log("提交参数：", payload);  // 可调试查看
+
         $.ajax({
             type: "POST",
             url: "/api/bookComment",
             contentType: "application/json",
-            data: JSON.stringify({
-                bookId: Number(bookId),
-                content: comment,
-                rating: score
-            }),
+            data: JSON.stringify(payload),
             success: function () {
                 javaex.message({ content: i18n[lang].submitSuccess || "提交成功", type: "success" });
                 setTimeout(() => window.history.back(), 1500);
@@ -106,5 +116,7 @@
         });
     }
 </script>
+
+
 </body>
 </html>

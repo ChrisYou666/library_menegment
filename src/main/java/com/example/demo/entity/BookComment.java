@@ -19,6 +19,8 @@ public class BookComment {
     private String byPerson;
     private String content;
     private Integer rating;
+    private String bookName;
+    private String userName;
 
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;

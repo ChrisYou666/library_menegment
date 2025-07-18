@@ -11,7 +11,7 @@
  Target Server Version : 80042 (8.0.42)
  File Encoding         : 65001
 
- Date: 16/07/2025 18:11:11
+ Date: 18/07/2025 13:22:20
 */
 
 SET NAMES utf8mb4;
@@ -54,12 +54,12 @@ CREATE TABLE `book`  (
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES (1, 'BK20240001', '9787302523103', '人工智能导论', 'Introduction to AI', '中文', '李开复', NULL, '清华大学出版社', '2021-05-20', 88.00, 11, 'A-101', 10, 4, 36, 1, '全面介绍人工智能基础与应用。', '/uploads/ai_intro.jpg', 4.60, 'CNY', '2024-01-01 10:00:00', '2025-07-16 17:41:07');
-INSERT INTO `book` VALUES (2, 'BK20240002', '9787505715660', '时间简史', 'A Brief History of Time', '英文', 'Stephen Hawking', '许明贤', '中国社会科学出版社', '2001-09-01', 49.00, 2, 'B-202', 12, 12, 18, 1, '著名物理学家霍金的宇宙探索名作。', '/uploads/time_brief.jpg', 4.90, 'CNY', '2024-01-02 11:00:00', '2024-01-02 11:00:00');
+INSERT INTO `book` VALUES (1, 'BK20240001', '9787302523103', '人工智能导论', 'Introduction to AI', '中文', '李开复', NULL, '清华大学出版社', '2021-05-20', 88.00, 11, 'A-101', 10, 5, 36, 1, '全面介绍人工智能基础与应用。', '/uploads/ai_intro.jpg', 4.39, 'CNY', '2024-01-01 10:00:00', '2025-07-16 17:41:07');
+INSERT INTO `book` VALUES (2, 'BK20240002', '9787505715660', '时间简史', 'A Brief History of Time', '英文', 'Stephen Hawking', '许明贤', '中国社会科学出版社', '2001-09-01', 49.00, 2, 'B-202', 12, 12, 18, 1, '著名物理学家霍金的宇宙探索名作。', '/uploads/time_brief.jpg', 4.75, 'CNY', '2024-01-02 11:00:00', '2024-01-02 11:00:00');
 INSERT INTO `book` VALUES (3, 'BK20240003', '9787108030406', '史记', NULL, '中文', '司马迁', NULL, '中华书局', '2010-03-15', 66.00, 3, 'C-310', 8, 5, 12, 1, '中国第一部纪传体通史，描绘西汉以前历史。', '/uploads/shiji.jpg', 4.80, 'CNY', '2025-07-15 12:00:00', '2025-07-16 18:09:20');
 INSERT INTO `book` VALUES (4, 'BK20240004', '9787569911815', '算法图解', 'Grokking Algorithms', '中英', 'Aditya Bhargava', '王海鹏', '人民邮电出版社', '2018-04-01', 79.00, 11, 'CS-201', 15, 10, 40, 1, '通俗易懂的算法入门图书。', '/uploads/algorithms.jpg', 4.70, 'CNY', '2024-01-04 13:00:00', '2025-07-16 13:00:00');
-INSERT INTO `book` VALUES (5, 'BK20240005', '9787115470984', '深入理解计算机系统', 'CSAPP', '中英', 'Randal E. Bryant', '潘爱民', '机械工业出版社', '2017-08-01', 108.00, 11, 'CS-301', 6, 4, 21, 1, '计算机系统底层原理详解。', '/uploads/csapp.jpg', 4.50, 'CNY', '2025-07-14 14:00:00', '2025-07-16 18:09:25');
-INSERT INTO `book` VALUES (6, 'BK20240006', '9787508697925', '经济学原理', 'Principles of Economics', '中英', 'N. Gregory Mankiw', '梁小民', '中国人民大学出版社', '2015-01-01', 88.00, 5, 'E-101', 10, 9, 11, 1, '最流行的经济学入门教材之一。', '/uploads/economics.jpg', 4.20, 'CNY', '2024-01-06 15:00:00', '2025-07-13 15:00:00');
+INSERT INTO `book` VALUES (5, 'BK20240005', '9787115470984', '深入理解计算机系统', 'CSAPP', '中英', 'Randal E. Bryant', '潘爱民', '机械工业出版社', '2017-08-01', 108.00, 11, 'CS-301', 6, 5, 21, 1, '计算机系统底层原理详解。', '/uploads/csapp.jpg', 4.50, 'CNY', '2025-07-14 14:00:00', '2025-07-16 18:09:25');
+INSERT INTO `book` VALUES (6, 'BK20240006', '9787508697925', '经济学原理', 'Principles of Economics', '中英', 'N. Gregory Mankiw', '梁小民', '中国人民大学出版社', '2015-01-01', 88.00, 5, 'E-101', 10, 10, 11, 1, '最流行的经济学入门教材之一。', '/uploads/economics.jpg', 4.20, 'CNY', '2024-01-06 15:00:00', '2025-07-13 15:00:00');
 INSERT INTO `book` VALUES (7, 'BK20240007', '9787559618854', '活着', NULL, '中文', '余华', NULL, '北京十月文艺出版社', '2017-06-01', 45.00, 1, 'L-102', 5, 5, 9, 1, '一部感人至深的人性小说。', '/uploads/huozhe.jpg', 4.90, 'CNY', '2025-07-15 16:00:00', '2025-07-16 18:09:30');
 INSERT INTO `book` VALUES (8, 'BK20240008', '9780140449266', '理想国', 'The Republic', '英文', '柏拉图', '郭斌和', 'Penguin Classics', '2003-09-01', 62.00, 4, 'P-101', 7, 6, 17, 1, '哲学经典，对正义与社会秩序的探讨。', '/uploads/republic.jpg', 4.60, 'USD', '2024-01-08 17:00:00', '2025-07-11 17:00:00');
 INSERT INTO `book` VALUES (9, 'BK20240009', '9787115351161', '图解心理学', NULL, '中文', '小林哲', NULL, '人民邮电出版社', '2019-05-01', 55.00, 10, 'PS-101', 6, 6, 5, 1, '以图文并茂方式介绍心理学知识。', '/uploads/psychology.jpg', 4.30, 'CNY', '2024-01-09 09:00:00', '2024-01-09 09:00:00');
@@ -106,33 +106,33 @@ INSERT INTO `book_category` VALUES (12, '语言学', 'LING', '语言结构、语
 DROP TABLE IF EXISTS `book_comment`;
 CREATE TABLE `book_comment`  (
   `id` int NOT NULL AUTO_INCREMENT COMMENT '评论ID',
-  `book_id` int NOT NULL COMMENT '图书ID',
-  `user_id` int NOT NULL COMMENT '用户ID',
   `by_person` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '评论人',
   `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '评论内容',
   `rating` tinyint NULL DEFAULT NULL COMMENT '评分：1-5星',
   `create_time` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `update_time` datetime NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `book_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '图书名称',
+  `user_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户名称',
+  `book_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '图书名称',
+  `user_id` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '用户名称',
   PRIMARY KEY (`id`) USING BTREE,
-  INDEX `idx_book_id`(`book_id` ASC) USING BTREE,
-  INDEX `idx_user_id`(`user_id` ASC) USING BTREE,
   INDEX `idx_create_time`(`create_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '图书评论表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '图书评论表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of book_comment
 -- ----------------------------
-INSERT INTO `book_comment` VALUES (1, 1, 2, 'John Doe', '深入浅出，很适合初学者了解AI。', 5, '2024-01-05 08:30:00', '2024-01-05 08:30:00');
-INSERT INTO `book_comment` VALUES (2, 2, 3, 'Li Wang', '科学性强，读起来略有难度，但值得一读。', 4, '2024-01-06 09:00:00', '2024-01-06 09:00:00');
-INSERT INTO `book_comment` VALUES (4, 4, 5, 'Nana', '图文并茂，很适合初学算法者。', 5, '2024-01-08 11:00:00', '2024-01-08 11:00:00');
-INSERT INTO `book_comment` VALUES (5, 5, 6, 'Irfan Maulana', 'CS入门的神书，值得精读。', 5, '2024-01-09 12:00:00', '2024-01-09 12:00:00');
-INSERT INTO `book_comment` VALUES (6, 6, 7, 'Alisa Zhang', '逻辑清晰，适合经济学初学者。', 4, '2024-01-10 13:00:00', '2024-01-10 13:00:00');
-INSERT INTO `book_comment` VALUES (7, 7, 8, 'Andrew Lee', '情感真挚，语言质朴。', 5, '2024-01-11 14:00:00', '2024-01-11 14:00:00');
-INSERT INTO `book_comment` VALUES (8, 8, 9, 'Anita Dewi', '哲学深邃，需多读几遍才能体会。', 4, '2024-01-12 15:00:00', '2024-01-12 15:00:00');
-INSERT INTO `book_comment` VALUES (9, 9, 10, 'Farid Hasyim', '内容有趣，适合普通读者了解心理学。', 5, '2024-01-13 16:00:00', '2024-01-13 16:00:00');
-INSERT INTO `book_comment` VALUES (10, 10, 11, 'Clara Tang', '适合有编程基础的同学阅读。', 4, '2024-01-14 17:00:00', '2024-01-14 17:00:00');
-INSERT INTO `book_comment` VALUES (11, 11, 12, 'Tony Shi', '非常幽默又深刻，经典作品。', 5, '2024-01-15 18:00:00', '2024-01-15 18:00:00');
-INSERT INTO `book_comment` VALUES (12, 12, 2, 'John Doe', '机器学习初学者必看。', 5, '2024-01-16 19:00:00', '2024-01-16 19:00:00');
+INSERT INTO `book_comment` VALUES (1, '系统管理员', '深入浅出，很适合初学者了解AI。', 5, '2024-01-05 08:30:00', '2025-07-18 10:59:54', '理想国', 'John Doe', '3', NULL);
+INSERT INTO `book_comment` VALUES (2, '系统管理员', '科学性强，读起来略有难度，但值得一读。', 4, '2024-01-06 09:00:00', '2025-07-18 11:00:27', '围城', 'Li Wang', '6', NULL);
+INSERT INTO `book_comment` VALUES (4, '系统管理员', '图文并茂，很适合初学算法者。', 5, '2024-01-08 11:00:00', '2025-07-18 11:00:21', '围城', 'Nana', '4', NULL);
+INSERT INTO `book_comment` VALUES (5, '系统管理员', 'CS入门的神书，值得精读。', 5, '2024-01-09 12:00:00', '2025-07-18 11:00:38', '经济学原理', 'Irfan Maulana', '3', NULL);
+INSERT INTO `book_comment` VALUES (6, '系统管理员', '逻辑清晰，适合经济学初学者。', 4, '2024-01-10 13:00:00', '2025-07-18 11:00:42', '围城', 'Alisa Zhang', '6', NULL);
+INSERT INTO `book_comment` VALUES (7, '系统管理员', '情感真挚，语言质朴。', 5, '2024-01-11 14:00:00', '2025-07-18 11:00:53', '理想国', 'Andrew Lee', '4', NULL);
+INSERT INTO `book_comment` VALUES (8, '系统管理员', '哲学深邃，需多读几遍才能体会。', 4, '2024-01-12 15:00:00', '2025-07-18 11:00:57', '经济学原理', 'Anita Dewi', '4', NULL);
+INSERT INTO `book_comment` VALUES (9, '系统管理员', '系统管理员', 3, '2025-07-18 11:01:33', '2025-07-18 11:01:40', '系统管理员', 'join', '3', '');
+INSERT INTO `book_comment` VALUES (10, '系统管理员', '适合有编程基础的同学阅读。', 4, '2024-01-14 17:00:00', '2025-07-18 11:02:25', '算法图解', 'Clara Tang', '5', NULL);
+INSERT INTO `book_comment` VALUES (11, '系统管理员', '非常幽默又深刻，经典作品。', 5, '2024-01-15 18:00:00', '2025-07-18 11:02:27', '时间简史', 'Tony Shi', '2', NULL);
+INSERT INTO `book_comment` VALUES (12, '系统管理员', '机器学习初学者必看。', 5, '2024-01-16 19:00:00', '2025-07-18 11:02:29', '时间简史', 'jdoe', '6', NULL);
 
 -- ----------------------------
 -- Table structure for book_recommendation
@@ -203,7 +203,7 @@ CREATE TABLE `lend_record`  (
 -- ----------------------------
 -- Records of lend_record
 -- ----------------------------
-INSERT INTO `lend_record` VALUES (1, 5, 'nana', 5, '活着', 'BK2025005', '2025-03-10 00:53:45', '2025-04-09 00:53:45', '2025-04-14 00:53:45', '逾期', 30, 1, NULL, 2, '2025-07-16 17:14:14', '2025-07-16 17:48:03');
+INSERT INTO `lend_record` VALUES (1, 5, 'nana', 5, '活着', 'BK2025005', '2025-03-10 00:53:45', '2025-04-09 00:53:45', '2025-07-18 10:29:41', '已归还', 130, 1, NULL, 2, '2025-07-16 17:14:14', '2025-07-16 17:48:03');
 INSERT INTO `lend_record` VALUES (2, 6, 'irfan', 3, '1984', 'BK2025003', '2025-06-19 06:44:33', '2025-07-19 06:44:33', NULL, '已借出', 30, 1, NULL, 1, '2025-07-16 17:14:14', '2025-07-16 17:47:53');
 INSERT INTO `lend_record` VALUES (3, 5, 'nana', 4, '时间简史', 'BK2025004', '2025-05-05 16:28:47', '2025-06-04 16:28:47', NULL, '已借出', 30, 1, NULL, 1, '2025-07-16 17:14:14', '2025-07-16 17:48:05');
 INSERT INTO `lend_record` VALUES (4, 6, 'irfan', 6, '人类简史', 'BK2025006', '2025-04-22 22:23:04', '2025-05-22 22:23:04', '2025-05-22 22:23:04', '逾期', 30, 1, NULL, 0, '2025-07-10 17:14:14', '2025-07-16 18:02:48');
@@ -211,8 +211,8 @@ INSERT INTO `lend_record` VALUES (5, 6, 'irfan', 1, '时间简史', 'BK2025001',
 INSERT INTO `lend_record` VALUES (6, 3, 'lwang', 6, '追风筝的人', 'BK2025006', '2025-06-16 09:55:53', '2025-07-29 09:55:53', NULL, '已借出', 30, 1, NULL, 0, '2025-07-16 17:14:14', '2025-07-16 18:08:03');
 INSERT INTO `lend_record` VALUES (7, 5, 'nana', 5, '人类简史', 'BK2025005', '2025-06-21 16:07:13', '2025-07-21 16:07:13', NULL, '已借出', 30, 1, NULL, 1, '2025-07-16 17:14:14', '2025-07-14 17:48:07');
 INSERT INTO `lend_record` VALUES (8, 4, 'hsim', 3, '人类简史', 'BK2025003', '2025-07-15 05:50:29', '2025-08-07 05:50:29', NULL, '已借出', 30, 1, NULL, 2, '2025-07-15 17:14:14', '2025-07-16 18:08:51');
-INSERT INTO `lend_record` VALUES (9, 4, 'hsim', 6, '1984', 'BK2025006', '2025-07-14 16:24:04', '2025-05-31 16:24:04', NULL, '已借出', 30, 1, NULL, 2, '2025-07-12 17:14:14', '2025-07-16 18:09:05');
-INSERT INTO `lend_record` VALUES (10, 6, 'irfan', 1, '1984', 'BK2025001', '2025-07-15 01:32:03', '2025-03-16 01:32:03', NULL, '已借出', 30, 1, NULL, 2, '2025-07-14 17:14:14', '2025-07-16 18:09:00');
+INSERT INTO `lend_record` VALUES (9, 4, 'hsim', 6, '1984', 'BK2025006', '2025-07-14 16:24:04', '2025-05-31 16:24:04', '2025-07-18 09:56:55', '已归还', 3, 1, NULL, 2, '2025-07-12 17:14:14', '2025-07-16 18:09:05');
+INSERT INTO `lend_record` VALUES (10, 6, 'irfan', 1, '1984', 'BK2025001', '2025-07-15 01:32:03', '2025-03-16 01:32:03', '2025-07-18 09:19:45', '已归还', 3, 1, NULL, 2, '2025-07-14 17:14:14', '2025-07-16 18:09:00');
 INSERT INTO `lend_record` VALUES (11, 4, 'hsim', 4, '解忧杂货店', 'BK2025004', '2025-04-24 08:20:48', '2025-05-24 08:20:48', '2025-05-31 08:20:48', '逾期', 30, 1, NULL, 1, '2025-07-16 17:14:14', '2025-07-15 17:48:18');
 INSERT INTO `lend_record` VALUES (12, 6, 'irfan', 4, '人类简史', 'BK2025004', '2025-04-05 15:44:12', '2025-05-05 15:44:12', '2025-05-09 15:44:12', '逾期', 30, 1, NULL, 0, '2025-07-16 17:14:14', '2025-07-16 17:47:48');
 INSERT INTO `lend_record` VALUES (13, 2, 'jdoe', 1, '人工智能导论', 'BK20240001', '2025-07-10 00:00:00', '2025-07-27 00:00:00', '2025-07-16 17:49:22', '已归还', 8, NULL, NULL, 0, '2025-07-16 17:48:42', '2025-07-16 18:07:54');
@@ -233,7 +233,7 @@ CREATE TABLE `sys_log`  (
   `exception` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL COMMENT '异常堆栈',
   `create_time` datetime NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 262 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 412 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统日志表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_log
@@ -498,6 +498,156 @@ INSERT INTO `sys_log` VALUES (258, NULL, '1', 'StatsController', 'userTrend', '[
 INSERT INTO `sys_log` VALUES (259, NULL, '1', 'StatsController', 'bookTrend', '[]', NULL, 'INFO', NULL, '2025-07-16 18:09:36');
 INSERT INTO `sys_log` VALUES (260, NULL, '1', 'StatsController', 'borrowTrend', '[]', NULL, 'INFO', NULL, '2025-07-16 18:09:36');
 INSERT INTO `sys_log` VALUES (261, NULL, '1', 'UserController', 'searchUsers', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-16 18:09:43');
+INSERT INTO `sys_log` VALUES (262, NULL, '1', 'UserController', 'searchUsers', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-16 18:13:11');
+INSERT INTO `sys_log` VALUES (263, NULL, 'login', 'AuthController', 'login', '[{\"username\":\"admin\",\"password\":\"123456\"}]', NULL, 'INFO', NULL, '2025-07-18 09:15:03');
+INSERT INTO `sys_log` VALUES (264, NULL, '1', 'UserController', 'currUser', '[]', NULL, 'INFO', NULL, '2025-07-18 09:15:04');
+INSERT INTO `sys_log` VALUES (265, NULL, '1', 'BookRecommendationController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:15:04');
+INSERT INTO `sys_log` VALUES (266, NULL, 'login', 'AuthController', 'login', '[{\"username\":\"jdoe\",\"password\":\"123456\"}]', NULL, 'INFO', NULL, '2025-07-18 09:15:16');
+INSERT INTO `sys_log` VALUES (267, NULL, '2', 'UserController', 'currUser', '[]', NULL, 'INFO', NULL, '2025-07-18 09:15:16');
+INSERT INTO `sys_log` VALUES (268, NULL, '2', 'BookRecommendationController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:15:16');
+INSERT INTO `sys_log` VALUES (269, NULL, '2', 'BookRecommendationController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:15:20');
+INSERT INTO `sys_log` VALUES (270, NULL, '2', 'BookRecommendationController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:15:24');
+INSERT INTO `sys_log` VALUES (271, NULL, '2', 'BookController', 'searchBooks', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:15:27');
+INSERT INTO `sys_log` VALUES (272, NULL, '2', 'BookRecommendationController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:15:38');
+INSERT INTO `sys_log` VALUES (273, NULL, '2', 'UserController', 'currUser', '[]', NULL, 'INFO', NULL, '2025-07-18 09:15:47');
+INSERT INTO `sys_log` VALUES (274, NULL, '2', 'LendRecordController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:15:54');
+INSERT INTO `sys_log` VALUES (275, NULL, '2', 'LendRecordController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:16:00');
+INSERT INTO `sys_log` VALUES (276, NULL, '2', 'LendRecordController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:16:14');
+INSERT INTO `sys_log` VALUES (277, NULL, '2', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:17:12');
+INSERT INTO `sys_log` VALUES (278, NULL, '1', 'BookController', 'searchBooks', '[1,10,\"\"]', NULL, 'INFO', NULL, '2025-07-18 09:17:23');
+INSERT INTO `sys_log` VALUES (279, NULL, '1', 'BookController', 'exportExcel', '[null,null,null]', NULL, 'INFO', NULL, '2025-07-18 09:17:32');
+INSERT INTO `sys_log` VALUES (280, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:18:44');
+INSERT INTO `sys_log` VALUES (281, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:19:35');
+INSERT INTO `sys_log` VALUES (282, NULL, '1', 'LendRecordController', 'returned', '[10]', NULL, 'INFO', NULL, '2025-07-18 09:19:45');
+INSERT INTO `sys_log` VALUES (283, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:19:45');
+INSERT INTO `sys_log` VALUES (284, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:20:12');
+INSERT INTO `sys_log` VALUES (285, NULL, '1', 'BookRecommendationController', 'search', '[\"\",1,10]', NULL, 'INFO', NULL, '2025-07-18 09:20:26');
+INSERT INTO `sys_log` VALUES (286, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:20:27');
+INSERT INTO `sys_log` VALUES (287, NULL, '1', 'BookRecommendationController', 'search', '[\"\",1,10]', NULL, 'INFO', NULL, '2025-07-18 09:20:27');
+INSERT INTO `sys_log` VALUES (288, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:20:43');
+INSERT INTO `sys_log` VALUES (289, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:21:24');
+INSERT INTO `sys_log` VALUES (290, NULL, '1', 'UserController', 'searchUsers', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:21:41');
+INSERT INTO `sys_log` VALUES (291, NULL, '1', 'UserController', 'currUser', '[]', NULL, 'INFO', NULL, '2025-07-18 09:24:13');
+INSERT INTO `sys_log` VALUES (292, NULL, '1', 'StatsController', 'bookTrend', '[]', NULL, 'INFO', NULL, '2025-07-18 09:24:33');
+INSERT INTO `sys_log` VALUES (293, NULL, '1', 'StatsController', 'userTrend', '[]', NULL, 'INFO', NULL, '2025-07-18 09:24:33');
+INSERT INTO `sys_log` VALUES (294, NULL, '1', 'StatsController', 'getVisitTrend', '[]', NULL, 'INFO', NULL, '2025-07-18 09:24:33');
+INSERT INTO `sys_log` VALUES (295, NULL, '1', 'StatsController', 'borrowTrend', '[]', NULL, 'INFO', NULL, '2025-07-18 09:24:33');
+INSERT INTO `sys_log` VALUES (296, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:24:43');
+INSERT INTO `sys_log` VALUES (297, NULL, '1', 'BookController', 'searchBooks', '[1,10,\"\"]', NULL, 'INFO', NULL, '2025-07-18 09:25:18');
+INSERT INTO `sys_log` VALUES (298, NULL, '1', 'BookController', 'searchBooks', '[1,10,\"\"]', NULL, 'INFO', NULL, '2025-07-18 09:25:21');
+INSERT INTO `sys_log` VALUES (299, NULL, '1', 'BookController', 'searchBooks', '[1,10,\"\"]', NULL, 'INFO', NULL, '2025-07-18 09:25:24');
+INSERT INTO `sys_log` VALUES (300, NULL, '1', 'BookController', 'searchBooks', '[1,10,\"\"]', NULL, 'INFO', NULL, '2025-07-18 09:25:45');
+INSERT INTO `sys_log` VALUES (301, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:25:50');
+INSERT INTO `sys_log` VALUES (302, NULL, '1', 'UserController', 'searchUsers', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:26:14');
+INSERT INTO `sys_log` VALUES (303, NULL, '1', 'UserController', 'currUser', '[]', NULL, 'INFO', NULL, '2025-07-18 09:26:25');
+INSERT INTO `sys_log` VALUES (304, NULL, '1', 'UserController', 'searchUsers', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:26:55');
+INSERT INTO `sys_log` VALUES (305, NULL, '1', 'UserController', 'searchUsers', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:27:09');
+INSERT INTO `sys_log` VALUES (306, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:27:14');
+INSERT INTO `sys_log` VALUES (307, NULL, '2', 'LendRecordController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:28:17');
+INSERT INTO `sys_log` VALUES (308, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:34:07');
+INSERT INTO `sys_log` VALUES (309, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:36:20');
+INSERT INTO `sys_log` VALUES (310, NULL, '1', 'UserController', 'searchUsers', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:36:37');
+INSERT INTO `sys_log` VALUES (311, NULL, '1', 'UserController', 'searchUsers', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:36:39');
+INSERT INTO `sys_log` VALUES (312, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:36:51');
+INSERT INTO `sys_log` VALUES (313, NULL, '2', 'LendRecordController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:48:08');
+INSERT INTO `sys_log` VALUES (314, NULL, '2', 'LendRecordController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:53:52');
+INSERT INTO `sys_log` VALUES (315, NULL, '2', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:53:53');
+INSERT INTO `sys_log` VALUES (316, NULL, '2', 'LendRecordController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 09:53:55');
+INSERT INTO `sys_log` VALUES (317, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:54:45');
+INSERT INTO `sys_log` VALUES (318, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:56:44');
+INSERT INTO `sys_log` VALUES (319, NULL, '1', 'LendRecordController', 'returned', '[9]', NULL, 'INFO', NULL, '2025-07-18 09:56:55');
+INSERT INTO `sys_log` VALUES (320, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:56:55');
+INSERT INTO `sys_log` VALUES (321, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:57:03');
+INSERT INTO `sys_log` VALUES (322, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:57:04');
+INSERT INTO `sys_log` VALUES (323, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:57:06');
+INSERT INTO `sys_log` VALUES (324, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:57:09');
+INSERT INTO `sys_log` VALUES (325, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:57:11');
+INSERT INTO `sys_log` VALUES (326, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 09:57:25');
+INSERT INTO `sys_log` VALUES (327, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:01:37');
+INSERT INTO `sys_log` VALUES (328, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":0,\"userId\":null,\"byPerson\":null,\"content\":\"123\",\"rating\":4}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getBorrowCount()\" because \"book\" is null', '2025-07-18 10:02:05');
+INSERT INTO `sys_log` VALUES (329, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":0,\"userId\":null,\"byPerson\":null,\"content\":\"123\",\"rating\":4}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getBorrowCount()\" because \"book\" is null', '2025-07-18 10:02:05');
+INSERT INTO `sys_log` VALUES (330, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:08:15');
+INSERT INTO `sys_log` VALUES (331, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:22:29');
+INSERT INTO `sys_log` VALUES (332, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:27:25');
+INSERT INTO `sys_log` VALUES (333, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":0,\"userId\":null,\"bookName\":null,\"userName\":null,\"byPerson\":null,\"content\":\"123\",\"rating\":5,\"operatorName\":null}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getBorrowCount()\" because \"book\" is null', '2025-07-18 10:27:35');
+INSERT INTO `sys_log` VALUES (334, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":0,\"userId\":null,\"bookName\":null,\"userName\":null,\"byPerson\":null,\"content\":\"123\",\"rating\":5,\"operatorName\":null}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getBorrowCount()\" because \"book\" is null', '2025-07-18 10:27:35');
+INSERT INTO `sys_log` VALUES (335, NULL, '1', 'LendRecordController', 'search', '[null,2,10]', NULL, 'INFO', NULL, '2025-07-18 10:29:38');
+INSERT INTO `sys_log` VALUES (336, NULL, '1', 'LendRecordController', 'returned', '[1]', NULL, 'INFO', NULL, '2025-07-18 10:29:41');
+INSERT INTO `sys_log` VALUES (337, NULL, '1', 'LendRecordController', 'search', '[null,2,10]', NULL, 'INFO', NULL, '2025-07-18 10:29:41');
+INSERT INTO `sys_log` VALUES (338, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":0,\"userId\":null,\"bookName\":null,\"userName\":null,\"byPerson\":null,\"content\":\"321\",\"rating\":5,\"operatorName\":null}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getBorrowCount()\" because \"book\" is null', '2025-07-18 10:29:57');
+INSERT INTO `sys_log` VALUES (339, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":0,\"userId\":null,\"bookName\":null,\"userName\":null,\"byPerson\":null,\"content\":\"321\",\"rating\":5,\"operatorName\":null}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getBorrowCount()\" because \"book\" is null', '2025-07-18 10:29:57');
+INSERT INTO `sys_log` VALUES (340, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:32:17');
+INSERT INTO `sys_log` VALUES (341, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:33:33');
+INSERT INTO `sys_log` VALUES (342, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:35:04');
+INSERT INTO `sys_log` VALUES (343, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人工智能导论\",\"userName\":\"jdoe\",\"byPerson\":null,\"content\":\"321\",\"rating\":4,\"operatorName\":null}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getBorrowCount()\" because \"book\" is null', '2025-07-18 10:35:09');
+INSERT INTO `sys_log` VALUES (344, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人工智能导论\",\"userName\":\"jdoe\",\"byPerson\":null,\"content\":\"321\",\"rating\":4,\"operatorName\":null}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getBorrowCount()\" because \"book\" is null', '2025-07-18 10:35:09');
+INSERT INTO `sys_log` VALUES (345, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:38:23');
+INSERT INTO `sys_log` VALUES (346, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人工智能导论\",\"userName\":\"jdoe\",\"byPerson\":null,\"content\":\"321\",\"rating\":2,\"operatorName\":null}]', NULL, 'INFO', NULL, '2025-07-18 10:38:29');
+INSERT INTO `sys_log` VALUES (347, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人工智能导论\",\"userName\":\"jdoe\",\"byPerson\":null,\"content\":\"321\",\"rating\":2,\"operatorName\":null}]', NULL, 'INFO', NULL, '2025-07-18 10:38:29');
+INSERT INTO `sys_log` VALUES (348, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:43:27');
+INSERT INTO `sys_log` VALUES (349, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人工智能导论\",\"userName\":\"jdoe\",\"byPerson\":null,\"content\":\"321\",\"rating\":2}]', NULL, 'INFO', NULL, '2025-07-18 10:43:32');
+INSERT INTO `sys_log` VALUES (350, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人工智能导论\",\"userName\":\"jdoe\",\"byPerson\":null,\"content\":\"321\",\"rating\":2}]', NULL, 'INFO', NULL, '2025-07-18 10:43:32');
+INSERT INTO `sys_log` VALUES (351, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:44:25');
+INSERT INTO `sys_log` VALUES (352, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:46:48');
+INSERT INTO `sys_log` VALUES (353, NULL, '1', 'BookCommentController', 'page', '[2,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:47:01');
+INSERT INTO `sys_log` VALUES (354, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:47:03');
+INSERT INTO `sys_log` VALUES (355, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:47:40');
+INSERT INTO `sys_log` VALUES (356, NULL, '1', 'BookCommentController', 'page', '[2,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:47:48');
+INSERT INTO `sys_log` VALUES (357, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:47:50');
+INSERT INTO `sys_log` VALUES (358, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:49:36');
+INSERT INTO `sys_log` VALUES (359, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:49:39');
+INSERT INTO `sys_log` VALUES (360, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:49:39');
+INSERT INTO `sys_log` VALUES (361, NULL, '1', 'UserController', 'currUser', '[]', NULL, 'INFO', NULL, '2025-07-18 10:49:45');
+INSERT INTO `sys_log` VALUES (362, NULL, '1', 'BookRecommendationController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:49:45');
+INSERT INTO `sys_log` VALUES (363, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:49:50');
+INSERT INTO `sys_log` VALUES (364, NULL, '1', 'BookCommentController', 'page', '[2,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:49:52');
+INSERT INTO `sys_log` VALUES (365, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:50:26');
+INSERT INTO `sys_log` VALUES (366, NULL, '1', 'BookCommentController', 'page', '[2,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:50:28');
+INSERT INTO `sys_log` VALUES (367, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:50:30');
+INSERT INTO `sys_log` VALUES (368, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:52:16');
+INSERT INTO `sys_log` VALUES (369, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:54:20');
+INSERT INTO `sys_log` VALUES (370, NULL, '1', 'BookCommentController', 'page', '[2,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:54:43');
+INSERT INTO `sys_log` VALUES (371, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:54:46');
+INSERT INTO `sys_log` VALUES (372, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:55:31');
+INSERT INTO `sys_log` VALUES (373, NULL, '1', 'BookCommentController', 'page', '[2,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:55:33');
+INSERT INTO `sys_log` VALUES (374, NULL, '1', 'UserController', 'currUser', '[]', NULL, 'INFO', NULL, '2025-07-18 10:55:36');
+INSERT INTO `sys_log` VALUES (375, NULL, '1', 'BookRecommendationController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 10:55:36');
+INSERT INTO `sys_log` VALUES (376, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:55:40');
+INSERT INTO `sys_log` VALUES (377, NULL, '1', 'BookCommentController', 'page', '[2,10,null]', NULL, 'INFO', NULL, '2025-07-18 10:55:42');
+INSERT INTO `sys_log` VALUES (378, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 11:02:34');
+INSERT INTO `sys_log` VALUES (379, NULL, '1', 'BookCommentController', 'page', '[2,10,null]', NULL, 'INFO', NULL, '2025-07-18 11:02:37');
+INSERT INTO `sys_log` VALUES (380, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 11:02:38');
+INSERT INTO `sys_log` VALUES (381, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 11:02:59');
+INSERT INTO `sys_log` VALUES (382, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 11:04:00');
+INSERT INTO `sys_log` VALUES (383, NULL, '1', 'UserController', 'currUser', '[]', NULL, 'INFO', NULL, '2025-07-18 13:17:53');
+INSERT INTO `sys_log` VALUES (384, NULL, '1', 'BookRecommendationController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 13:17:53');
+INSERT INTO `sys_log` VALUES (385, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 13:17:56');
+INSERT INTO `sys_log` VALUES (386, NULL, '1', 'BookCommentController', 'deleteBatch', '[[14,13]]', NULL, 'INFO', NULL, '2025-07-18 13:18:15');
+INSERT INTO `sys_log` VALUES (387, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 13:18:15');
+INSERT INTO `sys_log` VALUES (388, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 13:18:18');
+INSERT INTO `sys_log` VALUES (389, NULL, '1', 'BookRecommendationController', 'search', '[\"\",1,10]', NULL, 'INFO', NULL, '2025-07-18 13:18:25');
+INSERT INTO `sys_log` VALUES (390, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 13:19:00');
+INSERT INTO `sys_log` VALUES (391, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":4}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:19:13');
+INSERT INTO `sys_log` VALUES (392, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":4}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:19:13');
+INSERT INTO `sys_log` VALUES (393, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":4}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:19:45');
+INSERT INTO `sys_log` VALUES (394, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":4}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:19:45');
+INSERT INTO `sys_log` VALUES (395, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 13:19:48');
+INSERT INTO `sys_log` VALUES (396, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"时间简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":2}]', NULL, 'INFO', NULL, '2025-07-18 13:19:54');
+INSERT INTO `sys_log` VALUES (397, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"时间简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":2}]', NULL, 'INFO', NULL, '2025-07-18 13:19:54');
+INSERT INTO `sys_log` VALUES (398, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 13:19:59');
+INSERT INTO `sys_log` VALUES (399, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 13:20:38');
+INSERT INTO `sys_log` VALUES (400, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":3}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:20:45');
+INSERT INTO `sys_log` VALUES (401, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":3}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:20:45');
+INSERT INTO `sys_log` VALUES (402, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":3}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:21:46');
+INSERT INTO `sys_log` VALUES (403, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":3}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:21:46');
+INSERT INTO `sys_log` VALUES (404, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":3}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:21:51');
+INSERT INTO `sys_log` VALUES (405, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人类简史\",\"userName\":\"irfan\",\"byPerson\":null,\"content\":\"321\",\"rating\":3}]', NULL, 'ERROR', 'NullPointerException: Cannot invoke \"com.example.demo.entity.Book.getId()\" because \"book\" is null', '2025-07-18 13:21:51');
+INSERT INTO `sys_log` VALUES (406, NULL, '1', 'LendRecordController', 'search', '[null,1,10]', NULL, 'INFO', NULL, '2025-07-18 13:21:52');
+INSERT INTO `sys_log` VALUES (407, NULL, '1', 'CommentServiceImpl', 'createComment', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人工智能导论\",\"userName\":\"jdoe\",\"byPerson\":null,\"content\":\"321\",\"rating\":2}]', NULL, 'INFO', NULL, '2025-07-18 13:21:58');
+INSERT INTO `sys_log` VALUES (408, NULL, '1', 'BookCommentController', 'create', '[{\"bookId\":null,\"userId\":null,\"bookName\":\"人工智能导论\",\"userName\":\"jdoe\",\"byPerson\":null,\"content\":\"321\",\"rating\":2}]', NULL, 'INFO', NULL, '2025-07-18 13:21:58');
+INSERT INTO `sys_log` VALUES (409, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 13:22:01');
+INSERT INTO `sys_log` VALUES (410, NULL, '1', 'BookCommentController', 'deleteBatch', '[[16,15]]', NULL, 'INFO', NULL, '2025-07-18 13:22:05');
+INSERT INTO `sys_log` VALUES (411, NULL, '1', 'BookCommentController', 'page', '[1,10,null]', NULL, 'INFO', NULL, '2025-07-18 13:22:05');
 
 -- ----------------------------
 -- Table structure for system_stats

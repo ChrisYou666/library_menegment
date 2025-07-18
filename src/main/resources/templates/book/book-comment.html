@@ -37,6 +37,7 @@
                     <th data-i18n="id">ID</th>
                     <th data-i18n="bookName">图书名称</th>
                     <th data-i18n="username">评论人</th>
+                    <th data-i18n="operator">操作人</th>
                     <th data-i18n="content">内容</th>
                     <th data-i18n="rating">评分</th>
                     <th data-i18n="createTime">创建时间</th>
@@ -64,6 +65,7 @@
                 "<td><input type='checkbox' class='rowBox' value='"+c.id+"'/></td>" +
                 "<td>"+(c.id||'')+"</td>" +
                 "<td>"+(c.bookName||'')+"</td>" +
+                "<td>"+(c.userName||'')+"</td>" +
                 "<td>"+(c.byPerson||'')+"</td>" +
                 "<td>"+(c.content||'')+"</td>" +
                 "<td>"+(c.rating||'')+"</td>" +

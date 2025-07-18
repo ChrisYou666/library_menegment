@@ -45,6 +45,7 @@
             <th data-i18n="dueTime">应还时间</th>
             <th data-i18n="returnTime">归还时间</th>
             <th data-i18n="status">状态</th>
+            <th data-i18n="operator">操作人</th> <!-- ✅ 新增操作人列 -->
             <th data-i18n="actions">操作</th>
         </tr>
         </thead>
@@ -102,15 +103,27 @@
                 "<td>"+(r.dueTime||'')+"</td>" +
                 "<td>"+(r.returnTime||'')+"</td>" +
                 "<td>"+(r.status == 1 ? i18n[lang]['borrowBook'] : i18n[lang]['returnBook'])+"</td>" +
+                "<td>"+(r.operatorName || '-')+"</td>" +  // ✅ 显示操作人
                 "<td>" +
                 "<button class='button green radius-3 op-btn' onclick='returnBook("+r.id+")' data-i18n='returnBook'>"+i18n[lang]['returnBook']+"</button>" +
-                "<button class='button red radius-3 op-btn' onclick='deleteBook("+r.id+")' data-i18n='delete'>"+i18n[lang]['delete']+"</button>" +
+                "<button class='button blue radius-3 op-btn' onclick='commentBook(\""+r.bookName+"\", \""+r.userName+"\", \""+lang+"\")' data-i18n='comment'>"+i18n[lang]['comment']+"</button>" +// ✅ 评论按钮
                 "</td>" +
                 "</tr>";
         });
         $("#tbody").html(html);
         $('#selectAll').prop('checked', false);
     }
+
+    function commentBook(bookName, userName, lang) {
+        const encodedBookName = encodeURIComponent(bookName);
+        const encodedUserName = encodeURIComponent(userName);
+        const encodedLang = encodeURIComponent(lang);
+
+        // 跳转至评论页面
+        window.location.href = `/user/user-comment.html?bookName=${encodedBookName}&userName=${encodedUserName}&lang=${encodedLang}`;
+    }
+    window.commentBook = commentBook;
+
 
     function renderPage(total, curr, size) {
         var totalPage = Math.ceil(total / size);

@@ -49,12 +49,15 @@ public class CommentServiceImpl extends ServiceImpl<BookCommentMapper, BookComme
     public void createComment(BookCommentDTO dto) {
         // 获取当前用户
         Integer userId = Math.toIntExact(userContext.getUserId());
-        User user = userService.getById(userId);
-        dto.setByPerson(user.getNickName());
-        dto.setUserId(userId);
 
-        // 查询图书信息
-        Book book = bookMapper.selectById(dto.getBookId());
+        User operatorUser = userService.getById(userId);
+        dto.setByPerson(operatorUser.getNickName());
+
+        User commentator=userService.getByName(dto.getUserName());
+        dto.setUserId(commentator.getId());
+
+        Book book=bookService.getByName(dto.getBookName());
+        dto.setBookId(book.getId());
         Integer borrowCount = book.getBorrowCount();
         BigDecimal ratingAvg = book.getRatingAvg();
 

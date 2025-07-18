@@ -8,10 +8,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 @Data
 public class BookCommentDTO {
-    @NotNull
+
     private Integer bookId;
 
     private Integer userId;
+    private String bookName;
+    private String userName;
     private String byPerson;
     @NotBlank
     private String content;

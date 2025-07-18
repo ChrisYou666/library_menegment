@@ -13,6 +13,7 @@ public class BookCommentVO {
     private String content;
     private Integer rating;
     private String bookName;
+    private String userName;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 }
